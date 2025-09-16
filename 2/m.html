@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Robojoy - Futuristic Navigation</title>
+  <link rel="stylesheet" href="PROJECT.css">
+</head>
+
+<body>
+  <nav class="navbar">
+    <a href="1.html">
+      <img src="/AHH/images/LOGOOO.png" alt="" style="width: 200px;">
+    </a>
+
+    <ul class="nav-links">
+      <li><a href="#">Home</a></li>
+      <li><a href="/AHH/Products/product.html">Products</a></li>
+      <li><a href="#">Services</a></li>
+      <li><a href="#">About</a></li>
+      <li><a href="#">Contact</a></li>
+    </ul>
+
+    <!-- 🌗 Light/Dark Mode Toggle -->
+    <button class="theme-toggle">🌙</button>
+
+    <div class="hamburger">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+  </nav>
+
+  <h1 class="welcome">Welcome to the Future</h1>
+  <p>This is a demonstration of a sleek, futuristic navigation bar with a glowing "Robojoy" logo. The navbar
+    features smooth hover animations, gradient effects, and a responsive design that works on all devices.</p>
+
+  <script>
+    // Toggle mobile menu
+    const hamburger = document.querySelector('.hamburger');
+    const navLinks = document.querySelector('.nav-links');
+
+    hamburger.addEventListener('click', () => {
+      navLinks.classList.toggle('active');
+    });
+
+    // 🌗 Theme toggle
+    const themeToggle = document.querySelector('.theme-toggle');
+    const body = document.body;
+
+    themeToggle.addEventListener('click', () => {
+      body.classList.toggle('light-mode');
+
+      // change button icon
+      if (body.classList.contains('light-mode')) {
+        themeToggle.textContent = "☀️";
+      } else {
+        themeToggle.textContent = "🌙";
+      }
+    });
+  </script>
+
+</body>
+
+</html>

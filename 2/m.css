@@ -1,0 +1,216 @@
+   * {
+       margin: 0;
+       padding: 0;
+       box-sizing: border-box;
+       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+   }
+
+   body {
+       background: #0a0e17;
+       color: #fff;
+       min-height: 100vh;
+       display: flex;
+       flex-direction: column;
+   }
+
+   .navbar {
+       background: rgba(10, 14, 23, 0.85);
+       backdrop-filter: blur(10px);
+       border-bottom: 1px solid rgba(0, 247, 255, 0.2);
+       padding: 15px 40px;
+       display: flex;
+
+       justify-content: space-between;
+       align-items: center;
+       position: sticky;
+       top: 0;
+       z-index: 1000;
+       box-shadow: 0 5px 25px rgba(0, 247, 255, 0.1);
+   }
+
+
+   .nav-links {
+       display: flex;
+       list-style: none;
+   }
+
+   .nav-links li {
+       margin: 0 15px;
+       position: relative;
+   }
+
+   .nav-links a {
+       color: #ccd6f6;
+       text-decoration: none;
+       font-size: 16px;
+       font-weight: 500;
+       padding: 8px 0;
+       transition: all 0.3s ease;
+       letter-spacing: 0.5px;
+   }
+
+   .nav-links a::before {
+       content: '';
+       position: absolute;
+       bottom: 0;
+       left: 0;
+       width: 0;
+       height: 2px;
+       background: linear-gradient(90deg, #00f7ff, #00ff95);
+       transition: width 0.3s ease;
+   }
+
+   .nav-links a:hover {
+       color: #00f7ff;
+       text-shadow: 0 0 10px rgba(0, 247, 255, 0.7);
+   }
+
+   .nav-links a:hover::before {
+       width: 100%;
+   }
+
+   .hamburger {
+       display: none;
+       flex-direction: column;
+       cursor: pointer;
+   }
+
+   .hamburger span {
+       width: 25px;
+       height: 3px;
+       background: #00f7ff;
+       margin: 2px 0;
+       transition: all 0.3s ease;
+       border-radius: 2px;
+   }
+
+   .content {
+       padding: 50px;
+       text-align: center;
+       margin-top: 50px;
+   }
+
+   h1 {
+       font-size: 48px;
+       margin-bottom: 20px;
+       background: linear-gradient(45deg, #00f7ff, #00ff95);
+       -webkit-background-clip: text;
+       background-clip: text;
+       color: transparent;
+   }
+
+   .welcome {
+       margin: 20px auto;
+   }
+
+   p {
+       font-size: 18px;
+       line-height: 1.6;
+       max-width: 800px;
+       margin: 0 auto;
+       color: #ccd6f6;
+   }
+
+   @media screen and (max-width: 768px) {
+       .navbar {
+           padding: 15px 20px;
+       }
+
+       .nav-links {
+           position: fixed;
+           top: 70px;
+           left: 0;
+           background: rgba(10, 14, 23, 0.95);
+           width: 100%;
+           flex-direction: column;
+           align-items: center;
+           padding: 20px 0;
+           clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
+           transition: all 0.4s ease-in-out;
+       }
+
+       .nav-links.active {
+           clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+       }
+
+       .nav-links li {
+           margin: 15px 0;
+       }
+
+       .hamburger {
+           display: flex;
+       }
+   }
+
+   .animated-gradient {
+       background: linear-gradient(270deg, #a960ee, #ff333d, #ffcb57, #a960ee);
+       background-size: 400% 400%;
+       animation: gradientFlow 6s ease infinite;
+       color: white;
+       /* text stays visible */
+   }
+
+   @keyframes gradientFlow {
+       0% {
+           background-position: 0% 50%;
+       }
+
+       50% {
+           background-position: 100% 50%;
+       }
+
+       100% {
+           background-position: 0% 50%;
+       }
+   }
+
+   /* 🌑 Default: Dark Mode (already defined in your code) */
+
+/* 🌞 Light Mode */
+body.light-mode {
+  background: #f4f6fb;
+  color: #111;
+}
+
+body.light-mode .navbar {
+  background: rgba(255, 255, 255, 0.9);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  box-shadow: 0 5px 25px rgba(0, 0, 0, 0.05);
+}
+
+body.light-mode .nav-links a {
+  color: #333;
+}
+
+body.light-mode .nav-links a:hover {
+  color: #0077ff;
+  text-shadow: none;
+}
+
+body.light-mode p {
+  color: #333;
+}
+
+body.light-mode h1 {
+  background: linear-gradient(45deg, #0077ff, #00c853);
+  -webkit-background-clip: text;
+  color: transparent;
+}
+
+.theme-toggle {
+  margin-left: 20px;
+  background: none;
+  border: none;
+  font-size: 20px;
+  cursor: pointer;
+  color: #00f7ff;
+  transition: transform 0.3s ease;
+}
+
+body.light-mode .theme-toggle {
+  color: #333;
+}
+
+.theme-toggle:hover {
+  transform: scale(1.2);
+}
