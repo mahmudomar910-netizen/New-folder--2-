@@ -163,3 +163,78 @@
            background-position: 0% 50%;
        }
    }
+
+   .testbt {
+       width: 200px;
+       height: 100px;
+       transition: all 0.5s ease-in-out 0s;
+       /* property | duration | timing | delay */
+       margin: 50px auto;
+   }
+
+   .testbt:hover {
+       background-color: dodgerblue;
+       transform: scale(0.7);
+   }
+
+   .animate-on-scroll {
+       opacity: 0;
+       transition: opacity 1s ease-in, transform 1s ease-out;
+   }
+
+   .animate-on-scroll.is-visible {
+       opacity: 1;
+       transform: translateX(0) translateY(0);
+   }
+
+   /* Starting positions for different effects */
+   .from-left {
+       transform: translateX(-50px);
+   }
+
+   .from-right {
+       transform: translateX(50px);
+   }
+
+   .fade-in {
+       transform: translateY(20px);
+   }
+
+
+   /* New Animation Types */
+
+   /* Fade-in from Bottom */
+   .fade-in-bottom {
+       transform: translateY(20px);
+   }
+
+   /* Slide in from the Left */
+   .slide-in-left {
+       transform: translateX(-100px);
+   }
+
+   /* Slide in from the Right */
+   .slide-in-right {
+       transform: translateX(100px);
+   }
+
+   /* Zoom In (starts smaller) */
+   .zoom-in {
+       transform: scale(0.8);
+  
+   }
+
+   /* Zoom Out (starts larger) */
+   .zoom-out {
+       transform: scale(1.2);
+   }
+
+   /* Rotate and Fade */
+   .rotate-fade {
+       transform: rotate(15deg);
+   }
+
+   /* Flip and Fade */
+   .flip-fade {
+       transform: rotateX(90deg);
+   }

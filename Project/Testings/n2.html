@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scroll Animation</title>
+
+</head>
+<style>
+    /* General body styling for demonstration purposes */
+    body {
+        font-family: Arial, sans-serif;
+        line-height: 1.6;
+    }
+
+    section {
+        min-height: 400px;
+        padding: 2rem;
+        margin-bottom: 2rem;
+        background-color: #f0f0f0;
+        border-radius: 8px;
+    }
+
+    /* * The CSS for the animation 
+ * Add this to your style.css file
+ */
+    .animate-on-scroll {
+        opacity: 0;
+        transition: opacity 1s ease-out, transform 1s ease-out;
+    }
+
+    /* Starting positions for different effects */
+    .from-left {
+        transform: translateX(-50px);
+    }
+
+    .from-right {
+        transform: translateX(50px);
+    }
+
+    .fade-in {
+        transform: translateY(20px);
+    }
+
+    /* The final, visible state. This class will be added by JavaScript. */
+    .animate-on-scroll.is-visible {
+        opacity: 1;
+        transform: translateX(0) translateY(0);
+    }
+</style>
+
+<body>
+    <header>
+        <nav>...</nav>
+        <h1>Welcome to My Website</h1>
+        <p>Scroll down to see content animate into view.</p>
+    </header>
+
+    <main>
+        <section class="animate-on-scroll from-left">
+            <h2>About Us</h2>
+            <p>This section will slide in from the left.</p>
+        </section>
+
+        <section class="animate-on-scroll from-right">
+            <h2>Our Services</h2>
+            <p>This section will slide in from the right.</p>
+        </section>
+
+        <section class="animate-on-scroll fade-in">
+            <h2>Contact</h2>
+            <p>This final section will just fade in.</p>
+        </section>
+    </main>
+
+    <footer>...</footer>
+
+    <script>
+        // Add this to your script.js file
+
+        // Get all elements with the class 'animate-on-scroll'
+        const elementsToAnimate = document.querySelectorAll('.animate-on-scroll');
+
+        // Create an options object for the Intersection Observer
+        const observerOptions = {
+            root: null, // Use the viewport as the container
+            rootMargin: '0px',
+            threshold: 0.2 // Trigger when 20% of the element is visible
+        };
+
+        // Create the observer instance
+        const observer = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                // Check if the element is intersecting (i.e., in the viewport)
+                if (entry.isIntersecting) {
+                    // Add the 'is-visible' class to trigger the animation
+                    entry.target.classList.add('is-visible');
+
+                    // Stop observing the element so it only animates once
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+
+        // Loop through each element and tell the observer to watch it
+        elementsToAnimate.forEach(element => {
+            observer.observe(element);
+        });
+    </script>
+</body>
+
+</html>
