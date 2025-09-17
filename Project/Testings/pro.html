@@ -444,6 +444,7 @@
     }
 
     /* ================== DROPDOWN MENU ================== */
+    /* ================== DROPDOWN MENU ================== */
     .has-dropdown {
         position: relative;
     }
@@ -458,12 +459,13 @@
         min-width: 180px;
         padding: 10px 0;
         border-radius: 8px;
-        display: none;
+        display: flex;
         flex-direction: column;
         box-shadow: 0 8px 20px rgba(0, 247, 255, 0.15);
         opacity: 0;
         transform: translateY(10px);
-        transition: all 0.3s ease;
+        pointer-events: none;
+        transition: all 0.35s ease;
         z-index: 1000;
     }
 
@@ -486,11 +488,23 @@
         text-shadow: 0 0 8px rgba(0, 247, 255, 0.6);
     }
 
+    /* Arrow style */
+    .arrow {
+        margin-left: 5px;
+        font-size: 12px;
+        display: inline-block;
+        transition: transform 0.35s ease;
+    }
+
     /* Desktop hover effect */
     .has-dropdown:hover .dropdown {
-        display: flex;
         opacity: 1;
         transform: translateY(0);
+        pointer-events: auto;
+    }
+
+    .has-dropdown:hover .arrow {
+        transform: rotate(180deg);
     }
 
     /* Mobile behavior */
@@ -499,15 +513,19 @@
             position: static;
             box-shadow: none;
             border: none;
-            opacity: 1;
-            transform: translateY(0);
-            display: none;
-            /* hidden until toggled */
             width: 100%;
+            opacity: 0;
+            max-height: 0;
+            overflow: hidden;
+            transform: translateY(0);
+            transition: all 0.35s ease;
         }
 
         .has-dropdown.active .dropdown {
-            display: flex;
+            opacity: 1;
+            max-height: 500px;
+            /* enough space for items */
+            pointer-events: auto;
         }
 
         .has-dropdown>a {
@@ -515,6 +533,34 @@
             justify-content: space-between;
             align-items: center;
         }
+
+        .has-dropdown.active .arrow {
+            transform: rotate(180deg);
+        }
+    }
+
+    /* Arrow animation (works on both desktop + mobile) */
+    .arrow {
+        margin-left: 6px;
+        font-size: 12px;
+        display: inline-block;
+        transform-origin: center;
+        transition: transform 0.35s cubic-bezier(.2, .9, .2, 1), text-shadow 0.35s ease;
+    }
+
+    /* Flip + glow */
+    .has-dropdown:hover .arrow,
+    .has-dropdown.active .arrow {
+        transform: rotate(180deg);
+        text-shadow: 0 0 6px rgba(0, 247, 255, 0.6);
+    }
+
+    /* Dropdown glow when visible */
+    .has-dropdown:hover .dropdown,
+    .has-dropdown.active .dropdown {
+        box-shadow: 0 10px 25px rgba(0, 247, 255, 0.3),
+            0 0 15px rgba(0, 247, 255, 0.2);
+        border-color: rgba(0, 247, 255, 0.4);
     }
 </style>
 
@@ -528,7 +574,7 @@
             <li><a class="flinks" href="home.html">Home</a></li>
             <li><a class="flinks" href="about.html">About</a></li>
             <li class="has-dropdown">
-                <a class="flinks" href="products.html">Products ▼</a>
+                <a class="flinks" href="products.html">Products <span class="arrow">▼</span></a>
                 <ul class="dropdown">
                     <li><a href="#">Home Robots</a></li>
                     <li><a href="#">Business Robots</a></li>
@@ -537,12 +583,13 @@
             </li>
 
             <li class="has-dropdown">
-                <a class="flinks" href="plans.html">Plans ▼</a>
+                <a class="flinks" href="plans.html">Plans <span class="arrow">▼</span></a>
                 <ul class="dropdown">
                     <li><a href="#">Individual Plans</a></li>
                     <li><a href="#">Business Plans</a></li>
                 </ul>
             </li>
+
 
             <li><a class="flinks" href="contact.html">Contact</a></li>
             <li><a href="#" class="navquote">
@@ -629,8 +676,9 @@
             observer.observe(element);
         });
 
-        
-        ////////////// DROPDOWN ////////////////        
+
+        ////////////// DROPDOWN //////////////// 
+
         // Dropdown toggle for mobile
         const dropdownParents = document.querySelectorAll('.has-dropdown > a');
 
@@ -642,6 +690,7 @@
                 }
             });
         });
+
 
     </script>
 
