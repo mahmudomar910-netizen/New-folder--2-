@@ -11,13 +11,14 @@
        min-height: 100vh;
        display: flex;
        flex-direction: column;
+
    }
 
    .navbar {
        background: rgba(10, 14, 23, 0.85);
        backdrop-filter: blur(10px);
        border-bottom: 1px solid rgba(0, 247, 255, 0.2);
-       padding: 15px 40px;
+       padding: 10px 20px;
        display: flex;
 
        justify-content: space-between;
@@ -35,11 +36,12 @@
    }
 
    .nav-links li {
-       margin: 0 15px;
+       height: fit-content;
+       margin: auto 15px;
        position: relative;
    }
 
-   .nav-links a {
+   .flinks {
        color: #ccd6f6;
        text-decoration: none;
        font-size: 16px;
@@ -47,9 +49,10 @@
        padding: 8px 0;
        transition: all 0.3s ease;
        letter-spacing: 0.5px;
+       margin-top: 16px;
    }
 
-   .nav-links a::before {
+   .flinks::before {
        content: '';
        position: absolute;
        bottom: 0;
@@ -60,14 +63,22 @@
        transition: width 0.3s ease;
    }
 
-   .nav-links a:hover {
+   .flinks:hover {
        color: #00f7ff;
        text-shadow: 0 0 10px rgba(0, 247, 255, 0.7);
    }
 
-   .nav-links a:hover::before {
+   .flinks:hover::before {
        width: 100%;
    }
+
+   .nav-links button {
+       width: 64px;
+       height: 32px;
+       border-radius: 16px;
+       border: solid white 3px;
+   }
+
 
    .hamburger {
        display: none;
@@ -90,26 +101,7 @@
        margin-top: 50px;
    }
 
-   h1 {
-       font-size: 48px;
-       margin-bottom: 20px;
-       background: linear-gradient(45deg, #00f7ff, #00ff95);
-       -webkit-background-clip: text;
-       background-clip: text;
-       color: transparent;
-   }
 
-   .welcome {
-       margin: 20px auto;
-   }
-
-   p {
-       font-size: 18px;
-       line-height: 1.6;
-       max-width: 800px;
-       margin: 0 auto;
-       color: #ccd6f6;
-   }
 
    @media screen and (max-width: 768px) {
        .navbar {
@@ -140,6 +132,163 @@
        .hamburger {
            display: flex;
        }
+   }
+
+   /*     QUOTE      */
+   /*****************/
+   /*****************/
+
+
+   .lora-lorra {
+       font-family: "Lora", serif;
+       font-optical-sizing: auto;
+       font-weight: 600;
+       font-style: normal;
+   }
+
+   .navquote {
+       position: relative;
+       display: inline-block;
+       padding: 10px 20px;
+       color: #03e9f4;
+       font-size: 16px;
+       text-decoration: none;
+       text-transform: uppercase;
+       overflow: hidden;
+       transition: .5s;
+       margin-top: 0px;
+       letter-spacing: 2px;
+       background-color: #0a0e17;
+       font-weight: 500;
+       font-family: Verdana, Geneva, Tahoma, sans-serif;
+   }
+
+   .navquote:hover {
+       background: #03e9f4;
+       color: #fff;
+       border-radius: 5px;
+       box-shadow: 0 0 5px #03e9f4,
+           0 0 25px #03e9f4,
+           0 0 50px #03e9f4,
+           0 0 100px #03e9f4;
+   }
+
+   .navquote:active {
+       background-color: #078b92;
+       color: #03e9f4;
+   }
+
+   .navquote span {
+       position: absolute;
+       display: block;
+   }
+
+   .navquote span:nth-child(1) {
+       top: 0;
+       left: -100%;
+       width: 100%;
+       height: 2px;
+       background: linear-gradient(90deg, transparent, #03e9f4);
+       animation: btn-anim1 1s linear infinite;
+   }
+
+   @keyframes btn-anim1 {
+       0% {
+           left: -100%;
+       }
+
+       50%,
+       100% {
+           left: 100%;
+       }
+   }
+
+   .navquote span:nth-child(2) {
+       top: -100%;
+       right: 0;
+       width: 2px;
+       height: 100%;
+       background: linear-gradient(180deg, transparent, #03e9f4);
+       animation: btn-anim2 1s linear infinite;
+       animation-delay: .25s
+   }
+
+   @keyframes btn-anim2 {
+       0% {
+           top: -100%;
+       }
+
+       50%,
+       100% {
+           top: 100%;
+       }
+   }
+
+   .navquote span:nth-child(3) {
+       bottom: 0;
+       right: -100%;
+       width: 100%;
+       height: 2px;
+       background: linear-gradient(270deg, transparent, #03e9f4);
+       animation: btn-anim3 1s linear infinite;
+       animation-delay: .5s
+   }
+
+   @keyframes btn-anim3 {
+       0% {
+           right: -100%;
+       }
+
+       50%,
+       100% {
+           right: 100%;
+       }
+   }
+
+   .navquote span:nth-child(4) {
+       bottom: -100%;
+       left: 0;
+       width: 2px;
+       height: 100%;
+       background: linear-gradient(360deg, transparent, #03e9f4);
+       animation: btn-anim4 1s linear infinite;
+       animation-delay: .75s
+   }
+
+   @keyframes btn-anim4 {
+       0% {
+           bottom: -100%;
+       }
+
+       50%,
+       100% {
+           bottom: 100%;
+       }
+   }
+
+   /* **************  */
+   /* END OF NAVBAR  */
+   /* ************* */
+
+ h1 {
+       font-size: 48px;
+       margin-bottom: 20px;
+       background: linear-gradient(45deg, #00f7ff, #00ff95);
+       -webkit-background-clip: text;
+       background-clip: text;
+       color: transparent;
+   }
+
+   .welcome {
+       margin: 20px auto;
+   }
+
+   p {
+       font-size: 18px;
+       line-height: 1.6;
+       max-width: 800px;
+       margin: 0 auto;
+       color: #ccd6f6;
    }
 
    .animated-gradient {
@@ -179,7 +328,7 @@
 
    .animate-on-scroll {
        opacity: 0;
-       transition: opacity 1s ease-in, transform 1s ease-out;
+       transition: opacity 300ms ease-in, transform 500ms ease-in;
    }
 
    .animate-on-scroll.is-visible {
@@ -220,8 +369,8 @@
 
    /* Zoom In (starts smaller) */
    .zoom-in {
-       transform: scale(0.8);
-  
+       transform: scale(0.6);
+
    }
 
    /* Zoom Out (starts larger) */
