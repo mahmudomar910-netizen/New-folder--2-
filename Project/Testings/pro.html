@@ -1,0 +1,651 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Robojoy - Futuristic Navigation</title>
+    <link rel="stylesheet" href="PROJECT.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Encode+Sans:wght@100..900&family=Geist:wght@100..900&family=Lora:ital,wght@0,400..700;1,400..700&family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap"
+        rel="stylesheet">
+</head>
+
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    body {
+        background: #0a0e17;
+        color: #fff;
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+
+    }
+
+    .navbar {
+        background: rgba(10, 14, 23, 0.85);
+        backdrop-filter: blur(10px);
+        border-bottom: 1px solid rgba(0, 247, 255, 0.2);
+        padding: 10px 20px;
+        display: flex;
+
+        justify-content: space-between;
+        align-items: center;
+        position: sticky;
+        top: 0;
+        z-index: 1000;
+        box-shadow: 0 5px 25px rgba(0, 247, 255, 0.1);
+    }
+
+
+    .nav-links {
+        display: flex;
+        list-style: none;
+    }
+
+    .nav-links li {
+        height: fit-content;
+        margin: auto 15px;
+        position: relative;
+    }
+
+    .flinks {
+        color: #ccd6f6;
+        text-decoration: none;
+        font-size: 16px;
+        font-weight: 500;
+        padding: 8px 0;
+        transition: all 0.3s ease;
+        letter-spacing: 0.5px;
+        margin-top: 16px;
+    }
+
+    .flinks::before {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 0;
+        height: 2px;
+        background: linear-gradient(90deg, #00f7ff, #00ff95);
+        transition: width 0.3s ease;
+    }
+
+    .flinks:hover {
+        color: #00f7ff;
+        text-shadow: 0 0 10px rgba(0, 247, 255, 0.7);
+    }
+
+    .flinks:hover::before {
+        width: 100%;
+    }
+
+    .nav-links button {
+        width: 64px;
+        height: 32px;
+        border-radius: 16px;
+        border: solid white 3px;
+    }
+
+
+    .hamburger {
+        display: none;
+        flex-direction: column;
+        cursor: pointer;
+    }
+
+    .hamburger span {
+        width: 25px;
+        height: 3px;
+        background: #00f7ff;
+        margin: 2px 0;
+        transition: all 0.3s ease;
+        border-radius: 2px;
+    }
+
+    .content {
+        padding: 50px;
+        text-align: center;
+        margin-top: 50px;
+    }
+
+
+
+    @media screen and (max-width: 768px) {
+        .navbar {
+            padding: 15px 20px;
+        }
+
+        .nav-links {
+            position: fixed;
+            top: 70px;
+            left: 0;
+            background: rgba(10, 14, 23, 0.95);
+            width: 100%;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px 0;
+            clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
+            transition: all 0.4s ease-in-out;
+        }
+
+        .nav-links.active {
+            clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+        }
+
+        .nav-links li {
+            margin: 15px 0;
+        }
+
+        .hamburger {
+            display: flex;
+        }
+    }
+
+    /*     QUOTE      */
+    /*****************/
+    /*****************/
+
+
+    .lora-lorra {
+        font-family: "Lora", serif;
+        font-optical-sizing: auto;
+        font-weight: 600;
+        font-style: normal;
+    }
+
+    .navquote {
+        position: relative;
+        display: inline-block;
+        padding: 10px 20px;
+        color: #03e9f4;
+        font-size: 16px;
+        text-decoration: none;
+        text-transform: uppercase;
+        overflow: hidden;
+        transition: .5s;
+        margin-top: 0px;
+        letter-spacing: 2px;
+        background-color: #0a0e17;
+        font-weight: 500;
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+    }
+
+    .navquote:hover {
+        background: #03e9f4;
+        color: #fff;
+        border-radius: 5px;
+        box-shadow: 0 0 5px #03e9f4,
+            0 0 25px #03e9f4,
+            0 0 50px #03e9f4,
+            0 0 100px #03e9f4;
+    }
+
+    .navquote:active {
+        background-color: #078b92;
+        color: #03e9f4;
+    }
+
+    .navquote span {
+        position: absolute;
+        display: block;
+    }
+
+    .navquote span:nth-child(1) {
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 2px;
+        background: linear-gradient(90deg, transparent, #03e9f4);
+        animation: btn-anim1 1s linear infinite;
+    }
+
+    @keyframes btn-anim1 {
+        0% {
+            left: -100%;
+        }
+
+        50%,
+        100% {
+            left: 100%;
+        }
+    }
+
+    .navquote span:nth-child(2) {
+        top: -100%;
+        right: 0;
+        width: 2px;
+        height: 100%;
+        background: linear-gradient(180deg, transparent, #03e9f4);
+        animation: btn-anim2 1s linear infinite;
+        animation-delay: .25s
+    }
+
+    @keyframes btn-anim2 {
+        0% {
+            top: -100%;
+        }
+
+        50%,
+        100% {
+            top: 100%;
+        }
+    }
+
+    .navquote span:nth-child(3) {
+        bottom: 0;
+        right: -100%;
+        width: 100%;
+        height: 2px;
+        background: linear-gradient(270deg, transparent, #03e9f4);
+        animation: btn-anim3 1s linear infinite;
+        animation-delay: .5s
+    }
+
+    @keyframes btn-anim3 {
+        0% {
+            right: -100%;
+        }
+
+        50%,
+        100% {
+            right: 100%;
+        }
+    }
+
+    .navquote span:nth-child(4) {
+        bottom: -100%;
+        left: 0;
+        width: 2px;
+        height: 100%;
+        background: linear-gradient(360deg, transparent, #03e9f4);
+        animation: btn-anim4 1s linear infinite;
+        animation-delay: .75s
+    }
+
+    @keyframes btn-anim4 {
+        0% {
+            bottom: -100%;
+        }
+
+        50%,
+        100% {
+            bottom: 100%;
+        }
+    }
+
+    /*******************/
+    /*******************/
+
+    /* END OF NAVBAR  * /
+
+   /*******************/
+    /******************/
+
+
+    .plus-jakarta-sans-sann {
+        font-family: "Plus Jakarta Sans", sans-serif;
+        font-optical-sizing: auto;
+        font-weight: 500;
+        font-style: normal;
+    }
+
+
+    .encode-sans-ene {
+        font-family: "Encode Sans", sans-serif;
+        font-optical-sizing: auto;
+        font-weight: 500;
+        font-style: normal;
+        font-variation-settings:
+            "wdth" 100;
+    }
+
+
+    .geist-ges {
+        font-family: "Geist", sans-serif;
+        font-optical-sizing: auto;
+        font-weight: 500;
+        font-style: normal;
+    }
+
+    /* ^^^^^^^^^^^^^^^^^^^^^^^^^ */
+    /*********** FONTS ***********/
+
+
+    h1 {
+        font-size: 48px;
+        margin-bottom: 20px;
+        background: linear-gradient(45deg, #00f7ff, #00ff95);
+        -webkit-background-clip: text;
+        background-clip: text;
+        color: transparent;
+        font-family: Geist;
+        font-weight: 400;
+
+    }
+
+    .welcome {
+        margin: 20px auto;
+    }
+
+    p {
+        font-size: 18px;
+        line-height: 1.6;
+        max-width: 800px;
+        margin: 0 auto;
+        color: #ccd6f6;
+        font-family: Geist;
+    }
+
+    .animated-gradient {
+        background: linear-gradient(270deg, #a960ee, #ff333d, #ffcb57, #a960ee);
+        background-size: 400% 400%;
+        animation: gradientFlow 6s ease infinite;
+        color: white;
+        /* text stays visible */
+    }
+
+    @keyframes gradientFlow {
+        0% {
+            background-position: 0% 50%;
+        }
+
+        50% {
+            background-position: 100% 50%;
+        }
+
+        100% {
+            background-position: 0% 50%;
+        }
+    }
+
+    .testbt {
+        width: 200px;
+        height: 100px;
+        transition: all 0.5s ease-in-out 0s;
+        /* property | duration | timing | delay */
+        margin: 50px auto;
+    }
+
+    .testbt:hover {
+        background-color: dodgerblue;
+        transform: scale(0.7);
+    }
+
+    .animate-on-scroll {
+        opacity: 0;
+        transition: opacity 300ms ease-in, transform 500ms ease-in;
+    }
+
+    .animate-on-scroll.is-visible {
+        opacity: 1;
+        transform: translateX(0) translateY(0);
+    }
+
+    /* Starting positions for different effects */
+    .from-left {
+        transform: translateX(-50px);
+    }
+
+    .from-right {
+        transform: translateX(50px);
+    }
+
+    .fade-in {
+        transform: translateY(20px);
+    }
+
+
+    /* New Animation Types */
+
+    /* Fade-in from Bottom */
+    .fade-in-bottom {
+        transform: translateY(20px);
+    }
+
+    /* Slide in from the Left */
+    .slide-in-left {
+        transform: translateX(-100px);
+    }
+
+    /* Slide in from the Right */
+    .slide-in-right {
+        transform: translateX(100px);
+    }
+
+    /* Zoom In (starts smaller) */
+    .zoom-in {
+        transform: scale(0.6);
+
+    }
+
+    /* Zoom Out (starts larger) */
+    .zoom-out {
+        transform: scale(1.2);
+    }
+
+    /* Rotate and Fade */
+    .rotate-fade {
+        transform: rotate(15deg);
+    }
+
+    /* Flip and Fade */
+    .flip-fade {
+        transform: rotateX(90deg);
+    }
+
+    /* ================== DROPDOWN MENU ================== */
+    .has-dropdown {
+        position: relative;
+    }
+
+    .dropdown {
+        list-style: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        background: rgba(10, 14, 23, 0.95);
+        border: 1px solid rgba(0, 247, 255, 0.2);
+        min-width: 180px;
+        padding: 10px 0;
+        border-radius: 8px;
+        display: none;
+        flex-direction: column;
+        box-shadow: 0 8px 20px rgba(0, 247, 255, 0.15);
+        opacity: 0;
+        transform: translateY(10px);
+        transition: all 0.3s ease;
+        z-index: 1000;
+    }
+
+    .dropdown li {
+        margin: 0;
+    }
+
+    .dropdown a {
+        display: block;
+        padding: 10px 20px;
+        color: #ccd6f6;
+        font-size: 15px;
+        text-decoration: none;
+        transition: all 0.3s ease;
+    }
+
+    .dropdown a:hover {
+        color: #00f7ff;
+        background: rgba(0, 247, 255, 0.1);
+        text-shadow: 0 0 8px rgba(0, 247, 255, 0.6);
+    }
+
+    /* Desktop hover effect */
+    .has-dropdown:hover .dropdown {
+        display: flex;
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    /* Mobile behavior */
+    @media screen and (max-width: 768px) {
+        .dropdown {
+            position: static;
+            box-shadow: none;
+            border: none;
+            opacity: 1;
+            transform: translateY(0);
+            display: none;
+            /* hidden until toggled */
+            width: 100%;
+        }
+
+        .has-dropdown.active .dropdown {
+            display: flex;
+        }
+
+        .has-dropdown>a {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+    }
+</style>
+
+<body>
+    <nav class="navbar">
+        <a href="1.html">
+            <img src="/Project/images/LOGOOO.png" alt="" style="width: 150px;">
+        </a>
+
+        <ul class="nav-links">
+            <li><a class="flinks" href="home.html">Home</a></li>
+            <li><a class="flinks" href="about.html">About</a></li>
+            <li class="has-dropdown">
+                <a class="flinks" href="products.html">Products ▼</a>
+                <ul class="dropdown">
+                    <li><a href="#">Home Robots</a></li>
+                    <li><a href="#">Business Robots</a></li>
+                    <li><a href="#">Healthcare Robots</a></li>
+                </ul>
+            </li>
+
+            <li class="has-dropdown">
+                <a class="flinks" href="plans.html">Plans ▼</a>
+                <ul class="dropdown">
+                    <li><a href="#">Individual Plans</a></li>
+                    <li><a href="#">Business Plans</a></li>
+                </ul>
+            </li>
+
+            <li><a class="flinks" href="contact.html">Contact</a></li>
+            <li><a href="#" class="navquote">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    Quote
+                </a></li>
+        </ul>
+
+        <div class="hamburger">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </nav>
+
+    <h1 class="welcome">Welcome to the Future</h1>
+    <p>This is a demonstration of a sleek, futuristic navigation bar with a glowing "Robojoy" logo. The navbar
+        features smooth hover animations, gradient effects, and a responsive design that works on all devices.</p>
+    </div>
+
+
+    <P>Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempore voluptatem eaque sint esse fuga ducimus iusto,
+        fugiat eum voluptatibus incidunt consequuntur maiores veniam aperiam libero labore nobis dignissimos eveniet
+        animi?</P>
+
+    <h1>Lorem ipsum dolor sit amet consectetur adipisicing elit. Enim, quibusdam temporibus? Numquam aperiam perferendis
+        facilis sed officiis aut quam veritatis non consequuntur iste aliquam dolores totam blanditiis corrupti, sequi
+        ipsa!</h1>
+    <h1>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Libero fuga temporibus quisquam corrupti ab?
+        Cupiditate facilis minus, nisi nobis consequuntur vero sunt unde vel voluptates harum in non sapiente odio?</h1>
+
+    <section class="animate-on-scroll slide-in-left" style="margin: 30px auto;">
+
+        <div>
+            <button class="testbt ">Learn More</button>
+        </div>
+    </section>
+
+    <script>
+
+        ///////////// HAMBURGER /////////////
+        // Toggle mobile menu
+
+        const hamburger = document.querySelector('.hamburger');
+        const navLinks = document.querySelector('.nav-links');
+
+        hamburger.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
+
+
+        ///////////// ANIMATIONS ////////////
+        // Get all elements with the class 'animate-on-scroll'
+        const elementsToAnimate = document.querySelectorAll('.animate-on-scroll');
+
+        // Create an options object for the Intersection Observer
+        const observerOptions = {
+            root: null, // Use the viewport as the container
+            rootMargin: '0px',
+            threshold: 0.2 // Trigger when 20% of the element is visible
+        };
+
+
+        ////////////// SCROLLING //////////
+        // Create the observer instance
+        const observer = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                // Check if the element is intersecting (i.e., in the viewport)
+                if (entry.isIntersecting) {
+                    // Add the 'is-visible' class to trigger the animation
+                    entry.target.classList.add('is-visible');
+
+                    // Stop observing the element so it only animates once
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+
+        // Loop through each element and tell the observer to watch it
+        elementsToAnimate.forEach(element => {
+            observer.observe(element);
+        });
+
+        
+        ////////////// DROPDOWN ////////////////        
+        // Dropdown toggle for mobile
+        const dropdownParents = document.querySelectorAll('.has-dropdown > a');
+
+        dropdownParents.forEach(parentLink => {
+            parentLink.addEventListener('click', (e) => {
+                if (window.innerWidth <= 768) {
+                    e.preventDefault(); // stop link from navigating
+                    parentLink.parentElement.classList.toggle('active');
+                }
+            });
+        });
+
+    </script>
+
+
+</body>
+
+</html>

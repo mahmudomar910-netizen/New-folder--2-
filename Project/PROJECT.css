@@ -266,17 +266,53 @@
        }
    }
 
-   /* **************  */
-   /* END OF NAVBAR  */
-   /* ************* */
+   /*******************/
+   /*******************/
 
- h1 {
+   /* END OF NAVBAR  * /
+
+   /*******************/
+   /******************/
+
+
+   .plus-jakarta-sans-sann {
+       font-family: "Plus Jakarta Sans", sans-serif;
+       font-optical-sizing: auto;
+       font-weight: 500;
+       font-style: normal;
+   }
+
+
+   .encode-sans-ene {
+       font-family: "Encode Sans", sans-serif;
+       font-optical-sizing: auto;
+       font-weight: 500;
+       font-style: normal;
+       font-variation-settings:
+           "wdth" 100;
+   }
+
+
+   .geist-ges {
+       font-family: "Geist", sans-serif;
+       font-optical-sizing: auto;
+       font-weight: 500;
+       font-style: normal;
+   }
+/* ^^^^^^^^^^^^^^^^^^^^^^^^^ */
+/*********** FONTS ***********/
+
+
+   h1 {
        font-size: 48px;
        margin-bottom: 20px;
        background: linear-gradient(45deg, #00f7ff, #00ff95);
        -webkit-background-clip: text;
        background-clip: text;
        color: transparent;
+       font-family: Geist;
+       font-weight: 400;
+
    }
 
    .welcome {
@@ -289,6 +325,7 @@
        max-width: 800px;
        margin: 0 auto;
        color: #ccd6f6;
+       font-family: Geist;
    }
 
    .animated-gradient {
