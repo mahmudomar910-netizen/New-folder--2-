@@ -1,0 +1,6 @@
+CLICK >>>>  active
+.has_dropdown   >>> Products/Plans
+dropdown >>> List
+.clicked >>> dropdowns clicked
+open >>> hover
+active >>> has_dropdown clicked?
