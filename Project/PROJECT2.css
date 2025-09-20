@@ -1,19 +1,3 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Robojoy - Futuristic Navigation</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Encode+Sans:wght@100..900&family=Geist:wght@100..900&family=Lora:ital,wght@0,400..700;1,400..700&family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap"
-        rel="stylesheet">
-</head>
-
-<style>
     * {
         margin: 0;
         padding: 0;
@@ -55,6 +39,33 @@
         margin: auto 15px;
         position: relative;
     }
+
+
+    .nav-links .home {
+        order: 1;
+    }
+
+    .nav-links .products {
+        order: 2;
+    }
+
+    .nav-links .solutions {
+        order: 3;
+    }
+
+    .nav-links .about {
+        order: 4;
+    }
+
+    .nav-links .contact {
+        order: 5;
+    }
+
+    .nav-links .liquote {
+        order: 6;
+    }
+
+
 
     .flinks {
         color: #ccd6f6;
@@ -110,6 +121,16 @@
         border-radius: 2px;
     }
 
+
+    .hamburger span:hover {
+        width: 25px;
+        height: 3px;
+        background: #00f7ff;
+        margin: 2px 0;
+        transition: all 0.3s ease;
+        border-radius: 2px;
+    }
+
     .content {
         padding: 50px;
         text-align: center;
@@ -118,7 +139,7 @@
 
 
 
-    @media screen and (max-width: 783px) {
+    @media screen and (max-width: 784px) {
         .navbar {
             padding: 12px 20px;
         }
@@ -176,6 +197,8 @@
         background-color: #0a0e17;
         font-weight: 500;
         font-family: Verdana, Geneva, Tahoma, sans-serif;
+        border: solid 1px rgba(255, 255, 255, 0.353) ;
+        box-shadow: 1px 0px 0px rgba(255, 255, 255, 0.418),;
     }
 
     .navquote:hover {
@@ -348,7 +371,7 @@
     }
 
     /* Mobile behavior */
-    @media screen and (max-width: 783px) {
+    @media screen and (max-width: 784px) {
         .dropdown {
             list-style: none;
             position: absolute;
@@ -387,9 +410,15 @@
             align-items: center;
         }
 
-        .has-dropdown.active .arrow {
-            transform: rotate(180deg);
+        .has-dropdown:hover .arrow {
+            transform: rotate(0deg) !important;
         }
+
+        .has-dropdown.active .arrow {
+            transform: rotate(180deg) !important;
+        }
+
+
     }
 
     /* Arrow animation (works on both desktop + mobile) */
@@ -477,6 +506,14 @@
         font-family: Geist;
     }
 
+
+    .material-symbols-outlined {
+        font-variation-settings:
+            'FILL' 1,
+            'wght' 300,
+            'GRAD' 0,
+            'opsz' 24
+    }
 
     /**********ANIMATIONS*********/
 
@@ -583,6 +620,8 @@
 
 
 
+
+
     /* Base hidden state (keep your look/animations) */
     .has-dropdown .dropdown {
         opacity: 0;
@@ -626,8 +665,12 @@
   */
     }
 
+    .drop2 {
+        width: 190px;
+    }
+
     /* ================== MOBILE & DROPDOWN RULES ================== */
-    @media screen and (max-width: 783px) {
+    @media screen and (max-width: 784px) {
 
         /* --- Core Navigation Styles --- */
         .navbar {
@@ -649,6 +692,22 @@
             overflow-y: auto;
             /* Allows scrolling on long menus */
             z-index: 999;
+        }
+
+        .nav-links .about {
+            order: 1;
+        }
+
+        .nav-links .products {
+            order: 2;
+        }
+
+        .nav-links .solutions {
+            order: 3;
+        }
+
+        .nav-links .contact {
+            order: 4;
         }
 
         .nav-links.active {
@@ -714,225 +773,249 @@
 
         /* Arrow rotation on click */
         .has-dropdown>a .arrow {
-            margin-left: auto;
+            margin: 0px;
             transition: transform 0.32s ease;
         }
+
+        .has-dropdown.active .dropdown {
+            border: solid 1px;
+            border-color: rgba(0, 247, 255, 0.7);
+        }
+
+        .has-dropdown.active ul li a {
+            padding: 16px 40px;
+        }
+
+        .drop1 li:nth-child(2) {
+            border-top: solid 1px;
+            border-bottom: solid 1px;
+            border-color: rgba(0, 247, 255, 0.2);
+        }
+
+        .drop1 li:nth-child(3) {
+            border-bottom: solid 1px;
+            border-color: rgba(0, 247, 255, 0.2);
+        }
+
+        .drop2 li:nth-child(2) {
+            border-top: solid 1px;
+            border-color: rgba(0, 247, 255, 0.2);
+        }
+
+        .has-dropdown.active .dropdown {
+            box-shadow: 0 10px 25px rgba(0, 247, 255, 0.2),
+                0 0 15px rgba(0, 247, 255, 0.2);
+            border-color: rgba(0, 247, 255, 0.4);
+        }
+
+        .has-submenu a .arrow2 {
+            display: inline-block;
+            font-size: 12px;
+            margin-left: 8px;
+            transform: rotate(0deg);
+            /* ▶ right */
+            transition: transform 0.3s ease;
+        }
+
+        /* Rotate to point left (◀) when submenu is active */
+        .has-submenu.active a .arrow2 {
+            transform: rotate(-180deg);
+            /* ◀ left */
+        }
+
+
+
+        /* Rotate to point left (◀) when submenu is active */
+        .has-submenu.active a .arrow2 {
+            transform: rotate(180deg) !important;
+            /* ◀ left */
+        }
+
+        /* ensure submenu trigger layout is touch-friendly */
+        .has-submenu>a {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 12px 18px;
+            width: 100%;
+            cursor: pointer;
+            text-decoration: none;
+        }
+
+
+
+        /* submenu collapsed by default in mobile
+           --- UPDATED: make submenu static in mobile so it expands inline (was absolute & off-screen) --- */
+        .has-submenu .submenu {
+            position: static;
+            /* <-- key fix for mobile */
+            top: auto;
+            left: auto;
+            transform: none;
+            width: 100%;
+            box-shadow: none;
+            border: none;
+            max-height: 0;
+            overflow: hidden;
+            opacity: 0;
+            visibility: hidden;
+            transition: max-height 0.28s ease, opacity 0.22s ease;
+            padding-left: 24px;
+            /* control indentation inside mobile menu */
+            margin: 0;
+        }
+
+        /* open state for mobile */
+        .has-submenu.active>.submenu {
+            max-height: 600px;
+            /* large enough for content; adjust if needed */
+            opacity: 1;
+            visibility: visible;
+
+        }
+
+        .quote2 {
+            visibility: visible !important;
+            order: 2;
+        }
+
+        .burger {
+            visibility: visible !important;
+            order: 1;
+        }
+
+        .submenu {
+            padding-top: 0 !important;
+            padding-bottom: 0 !important;
+
+        }
+
+        .has-submenu:nth-child(2) {
+            border-top: solid 1px;
+            border-color: rgba(0, 247, 255, 0.5);
+        }
+
+        .submenu li {
+            display: flex;
+            align-items: center;
+        }
+
+        .submenu li:nth-child(1) {
+            border-top: 1px solid rgba(255, 255, 255, 0.34)!important;
+        }
+
     }
-</style>
 
-<body>
-    <nav class="navbar">
-        <a href="1.html">
-            <img src="/Project/images/LOGOOO.png" alt="" style="width: 150px;">
-        </a>
+    .material-symbols-outlined {
+        width: 5px;
+        height: 5px;
+    }
 
-        <ul class="nav-links">
-            <li><a class="flinks" href="home.html">Home</a></li>
-            <li><a class="flinks" href="about.html">About</a></li>
-            <li class="has-dropdown">
-                <a class="flinks" href="">Products <span class="arrow">▼</span></a>
-                <ul class="dropdown">
-                    <li><a href="#">Home Robots</a></li>
-                    <li><a href="#">Business Robots</a></li>
-                    <li><a href="#">Healthcare Robots</a></li>
-                </ul>
-            </li>
+    .has-submenu a {
+        padding-right: 12px;
+    }
 
-            <li class="has-dropdown">
-                <a class="flinks" href="">Plans <span class="arrow">▼</span></a>
-                <ul class="dropdown">
-                    <li><a href="#">Individual Plans</a></li>
-                    <li><a href="#">Business Plans</a></li>
-                </ul>
-            </li>
+    .quote2 {
+        order: 1;
+    }
+
+    .hamburger {
+
+        order: 2;
+
+    }
+
+    /* Style for submenus (second-level dropdowns) */
 
 
-            <li><a class="flinks" href="contact.html">Contact</a></li>
-            <li><a href="#" class="navquote">
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                    Quote
-                </a></li>
-        </ul>
+    /* Submenu base */
+    .submenu {
+        position: absolute;
+        top: 0;
+        left: 100%;
+        background: rgba(10, 14, 23, 0.95);
+        min-width: 200px;
+        list-style: none;
+        padding: 10px 0;
+        margin: 0;
+        opacity: 0;
+        visibility: hidden;
+        transform: translateY(10px);
+        transition: all 0.3s ease;
+        border: 1px solid rgba(0, 247, 255, 0.2);
+        box-shadow: 0 5px 15px rgba(0, 247, 255, 0.1);
+        z-index: 2000;
+        border-radius: 8px;
+    }
 
-        <div class="hamburger">
-            <span></span>
-            <span></span>
-            <span></span>
-        </div>
-    </nav>
+    /* Show on hover OR if active class is set */
+    .has-submenu:hover>.submenu,
+    .has-submenu.active>.submenu {
+        opacity: 1;
+        visibility: visible;
+        transform: translateY(0);
+    }
 
-    <h1 class="welcome">Welcome to the Future</h1>
-    <p>This is a demonstration of a sleek, futuristic navigation bar with a glowing "Robojoy" logo. The navbar
-        features smooth hover animations, gradient effects, and a responsive design that works on all devices.</p>
-    </div>
+    /* Arrow style */
+    /* Default arrow points right */
+    /* Default arrow points right */
+    /* Default arrow points right (▶) */
+    .has-submenu a .arrow2 {
+        display: inline-block;
+        font-size: 12px;
+        margin-left: 8px;
+        transform: rotate(0deg);
+        /* ▶ right */
+        transition: transform 0.3s ease;
+    }
 
+    /* Rotate to point left (◀) when submenu is active */
+    .has-submenu.active a .arrow2 {
+        transform: rotate(-180deg);
+        /* ◀ left */
+    }
 
+    /* Prevent hover from forcing rotation */
+    .has-submenu:hover a .arrow2 {
+        transform: rotate(180deg);
+        /* stays ▶ until clicked */
+    }
 
-    <section class="animate-on-scroll slide-in-left" style="margin: 30px auto;">
+    /* Rotate to point left (◀) when submenu is active */
+    .has-submenu.active a .arrow2 {
+        transform: rotate(180deg);
+        /* ◀ left */
+    }
 
-        <div>
-            <button class="testbt ">Learn More</button>
-        </div>
-    </section>
-
-    <script>
-        /* --------------------
-           Consolidated JS
-           - single DOMContentLoaded
-           - delayed close to allow crossing the gap
-           - hover (temporary) + click (toggle/persistent)
-           - click outside closes all
-           - mobile hamburger dropdown fixes
-           -------------------- */
-        document.addEventListener('DOMContentLoaded', () => {
-
-            /*************** HAMBURGER *****************/
-            /* ----- hamburger (single binding) ----- */
-            const hamburger = document.querySelector('.hamburger');
-            const navLinks = document.querySelector('.nav-links');
-            if (hamburger && navLinks) {
-                hamburger.addEventListener('click', () => {
-                    navLinks.classList.toggle('active');
-
-                    // Close all mobile dropdowns when hamburger closes
-                    if (!navLinks.classList.contains('active')) {
-                        document.querySelectorAll('.has-dropdown').forEach(item => item.classList.remove('active'));
-                    }
-                });
-            }
-
-
-            /**************** SCROLLING **********************/
-            /* ----- IntersectionObserver for animations ----- */
-            const elementsToAnimate = document.querySelectorAll('.animate-on-scroll');
-            const observerOptions = { root: null, rootMargin: '0px', threshold: 0.2 };
-
-            const observer = new IntersectionObserver((entries, observerInstance) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        entry.target.classList.add('is-visible');
-                        observerInstance.unobserve(entry.target);
-                    }
-                });
-            }, observerOptions);
-
-            elementsToAnimate.forEach(el => observer.observe(el));
+    .has-dropdown>a {
+        color: #ccd6f6;
+        text-decoration: none;
+        font-size: 16px;
+        font-weight: 500;
+        padding: 0px 0;
+        transition: all 0.3s ease;
+        letter-spacing: 0.5px;
+        margin-top: 0px;
+    }
 
 
-            /**************** DROPDOWN ****************/
-            /* ----- Dropdown logic (robust) ----- */
-            const dropdownItems = document.querySelectorAll('.has-dropdown');
-            const CLOSE_DELAY = 220; // ms - small grace period to cross gap
+    /* ======= ADDED: Mobile arrow orientation override (closed: down, opened: up) ======= */
+    /* This block is intentionally placed at the end so it overrides earlier arrow rules */
+    @media screen and (max-width: 784px) {
 
-            dropdownItems.forEach(item => {
-                const trigger = item.querySelector('a');
-                const menu = item.querySelector('.dropdown');
-                let closeTimer = null;
-
-                function openNow() {
-                    if (closeTimer) { clearTimeout(closeTimer); closeTimer = null; }
-                    item.classList.add('open');
-                }
-
-                function scheduleClose() {
-                    if (closeTimer) clearTimeout(closeTimer);
-                    closeTimer = setTimeout(() => {
-                        if (!item.classList.contains('clicked')) {
-                            item.classList.remove('open');
-                        }
-                    }, CLOSE_DELAY);
-                }
-
-                function cancelClose() {
-                    if (closeTimer) { clearTimeout(closeTimer); closeTimer = null; }
-                }
-
-                // Desktop hover (only when not in mobile menu)
-                item.addEventListener('mouseenter', () => {
-                    if (window.innerWidth > 783 && !item.classList.contains('clicked')) {
-                        openNow();
-                    }
-                });
-                item.addEventListener('mouseleave', () => {
-                    if (window.innerWidth > 783 && !item.classList.contains('clicked')) {
-                        scheduleClose();
-                    }
-                });
-
-                if (menu) {
-                    menu.addEventListener('mouseenter', () => {
-                        if (window.innerWidth > 783) cancelClose();
-                    });
-                    menu.addEventListener('mouseleave', () => {
-                        if (window.innerWidth > 783 && !item.classList.contains('clicked')) scheduleClose();
-                    });
-                }
-
-                // Keyboard accessibility (desktop)
-                if (trigger) {
-                    trigger.addEventListener('focus', () => {
-                        if (window.innerWidth > 783) openNow();
-                    });
-                    trigger.addEventListener('blur', () => {
-                        if (window.innerWidth > 783 && !item.classList.contains('clicked')) scheduleClose();
-                    });
-
-                    // Click toggles persistent open/close
-                    trigger.addEventListener('click', (e) => {
-                        e.preventDefault(); // stop navigation
-                        const wasClicked = item.classList.contains('clicked');
-
-                        // Close all others
-                        dropdownItems.forEach(i => i.classList.remove('clicked', 'open'));
-
-                        if (!wasClicked) {
-                            item.classList.add('clicked', 'open');
-                        }
-                    });
-                }
-
-                // MOBILE dropdown click (hamburger only)
-                // MOBILE dropdown click (hamburger only)
-                if (trigger) {
-                    trigger.addEventListener('click', (e) => {
-                        if (window.innerWidth <= 783 && navLinks.classList.contains('active')) {
-                            e.preventDefault(); // prevent page navigation
-                            item.classList.toggle('active'); // toggle only mobile state
-                            item.classList.remove('open');   // remove desktop hover state if present
-                        }
-                    });
-                }
+        /* closed = down (rotate the right-arrow 90deg) */
+        .has-submenu>a .arrow2 {
+            transform: rotate(90deg) !important;
+            transition: transform 0.28s ease;
+            transform-origin: center;
+        }
 
 
-                window.addEventListener('resize', () => {
-                    if (window.innerWidth <= 783) {
-                        item.classList.remove('open'); // clear desktop-only temporary opens
-                    }
-                });
-            });
 
-            // Click outside closes all dropdowns
-            document.addEventListener('click', (e) => {
-                if (!e.target.closest('.has-dropdown')) {
-                    dropdownItems.forEach(i => i.classList.remove('clicked', 'open', 'active'));
-                }
-            });
-
-            // Escape key closes everything
-            document.addEventListener('keydown', (e) => {
-                if (e.key === 'Escape') {
-                    dropdownItems.forEach(i => i.classList.remove('clicked', 'open', 'active'));
-                }
-            });
-
-        });
-
-    </script>
-
-
-</body>
-
-</html>
+        /* opened = up (rotate to -90deg) */
+        .has-submenu.active>a .arrow2,
+        .has-submenu.open>a .arrow2,
+        .has-submenu.clicked>a .arrow2 {
+            transform: rotate(-90deg) !important;
+        }
+    }

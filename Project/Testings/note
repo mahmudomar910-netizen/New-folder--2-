@@ -4,3 +4,16 @@ dropdown >>> List
 .clicked >>> dropdowns clicked
 open >>> hover
 active >>> has_dropdown clicked?
+
+Activity Bar
+
+
+JoyClean — home cleaning robot (vacuum + mop + schedule cleaning via app).
+
+JoyGuard — home security & patrol robot (cameras + alert + remote control).
+
+JoyServe — restaurant service robot (deliver food from kitchen to table, obstacle avoidance).
+
+JoyCheck — retail shelf checker (walk aisles, scan shelves, report missing stock or wrong pricing).
+
+JoyMed — hospital helper (delivers meds, supplies, connects patients to doctors via video).
