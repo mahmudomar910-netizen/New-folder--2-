@@ -1,0 +1,624 @@
+/* ================= NEW SECTIONS ================= */
+
+/* Features */
+.features {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+    align-items: stretch;
+    margin: 3rem auto;
+    max-width: 1300px;
+    padding-top: 48vw !important;
+}
+
+.feature-card {
+    background: linear-gradient(180deg, rgb(14, 169, 156), rgba(0, 255, 140, 0.03));
+    border: 2px solid rgba(255, 255, 255, 0.351);
+    border-radius: 14px;
+    padding: 1.5rem;
+    min-height: 200px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    backdrop-filter: blur(6px);
+    transition: transform 0.35s cubic-bezier(0.2, 0.9, 0.2, 1),
+        box-shadow 0.35s ease;
+}
+
+.feature-card:hover {
+    transform: translateY(-10px) scale(1.01) !important;
+
+    box-shadow: 0 18px 40px rgba(0, 0, 0, 0.7);
+}
+
+.feature-card h3 {
+    font-size: 1.25rem;
+    margin-bottom: 0.6rem;
+    color: #e7fdf7;
+}
+
+.feature-card p {
+    color: #bcd7ff;
+    font-size: 0.95rem;
+}
+
+.feature-cta {
+    align-self: flex-start;
+    margin-top: 1rem;
+    padding: 8px 14px;
+    border-radius: 10px;
+    border: 2px solid rgba(255, 255, 255, 0.06);
+    text-decoration: none;
+    color: #fff;
+    font-weight: 600;
+}
+
+/* Testimonials */
+.testimonials {
+    margin: 3rem auto;
+    max-width: 1100px;
+}
+
+.test-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.25rem;
+}
+
+.testimonial {
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid rgba(255, 255, 255, 0.03);
+    padding: 1.25rem;
+    border-radius: 12px;
+    min-height: 140px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+}
+
+.testimonial p {
+    color: #cbd7ff;
+}
+
+.testimonial .who {
+    margin-top: 0.8rem;
+    color: #9fd2b7;
+    font-weight: 700;
+}
+
+/* CTA (Call-to-Action) */
+.cta-section {
+    margin: 3.25rem auto;
+    padding: 2rem;
+    border-radius: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    background: linear-gradient(90deg, #a960ee, #ff333d, #ffcb57);
+    color: white;
+    max-width: 1200px;
+}
+
+.cta-left h2 {
+    font-size: clamp(18px, 3.6vw, 32px);
+    margin-bottom: 0.4rem;
+}
+
+.cta-left p {
+    color: #f1f6ff;
+    max-width: 640px;
+}
+
+.cta-actions {
+    display: flex;
+    gap: 1rem;
+}
+
+.btn-primary {
+    padding: 12px 18px;
+    border-radius: 10px;
+    text-decoration: none;
+    font-weight: 700;
+    background: linear-gradient(90deg, #00f7ff, #00ff95);
+    color: #001;
+    border: none;
+}
+
+.btn-ghost {
+    padding: 12px 18px;
+    border-radius: 10px;
+    text-decoration: none;
+    color: #cfe8ff;
+    border: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+/* Footer */
+.site-footer {
+    margin-top: 3rem;
+    padding: 2.25rem 5vw;
+    border-top: 1px solid rgba(255, 255, 255, 0.03);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+}
+
+.site-footer .small {
+    color: #8fabc9;
+    font-size: 0.95rem;
+}
+
+/* ================= Responsive adjustments ================= */
+@media (max-width: 920px) {
+    .features {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .test-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 560px) {
+    .features {
+        grid-template-columns: 1fr;
+        padding: 0 4vw;
+    }
+
+    .cta-section {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+}
+
+
+/* ================= ABOUT US ================= */
+.about-section {
+    margin: 3rem auto;
+    max-width: 1100px;
+    text-align: center;
+    padding-top: 40px;
+    padding-bottom: 40px;
+}
+
+.about-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+    margin-top: 1.5rem;
+}
+
+.about-card {
+    background: rgba(2, 30, 70, 0.573);
+    border: 1px solid rgba(40, 12, 249, 0.423);
+    border-radius: 12px;
+    padding: 1.5rem;
+    text-align: left;
+    transition: transform 0.30s ease;
+
+}
+
+.about-card:hover {
+    transition-delay: 500ms !important;
+    transform: translateY(-10px);
+}
+
+/* ================= HOW IT WORKS ================= */
+.how-section {
+    margin: 3rem auto;
+    max-width: 1200px;
+    text-align: center;
+}
+
+.steps {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.5rem;
+    margin-top: 1.5rem;
+}
+
+.step-card {
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: 12px;
+    padding: 1.5rem;
+    transition: transform 0.3s ease;
+}
+
+.step-card:hover {
+    transform: translateY(-8px);
+}
+
+.step-number {
+    display: inline-block;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background: linear-gradient(90deg, #00f7ff, #00ff95);
+    color: #000;
+    font-weight: 700;
+    line-height: 36px;
+    margin-bottom: 0.5rem;
+}
+
+/* ================= FAQ ================= */
+.faq-section {
+    margin: 3rem auto;
+    max-width: 900px;
+}
+
+.faq-item {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+    margin-bottom: 1rem;
+}
+
+.faq-question {
+    width: 100%;
+    background: none;
+    border: none;
+    color: #fff;
+    text-align: left;
+    font-size: 1rem;
+    padding: 0.75rem 0;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.faq-answer {
+    display: none;
+    padding-bottom: 1rem;
+    color: #cbd7ff;
+    font-size: 0.95rem;
+}
+
+.faq-item.active .faq-answer {
+    display: block;
+}
+
+.faq-toggle {
+    font-weight: bold;
+    font-size: 1.2rem;
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+    .about-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .steps {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 600px) {
+    .steps {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* ================= MOBILE ENHANCEMENTS ================= */
+@media screen and (max-width: 784px) {
+
+    /* General */
+    .section-title {
+        font-size: clamp(22px, 6vw, 34px);
+        margin-bottom: 1rem;
+    }
+
+    /* About Us */
+    .about-section {
+        padding: 0 1rem;
+    }
+
+    .about-card {
+        padding: 1rem;
+        font-size: 0.95rem;
+    }
+
+    /* How It Works */
+    .steps {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+        padding: 0 1rem;
+    }
+
+    .step-card {
+        text-align: center;
+    }
+
+    .step-number {
+        margin: 0 auto 0.5rem;
+    }
+
+    /* FAQ */
+    .faq-section {
+        padding: 0 1rem;
+    }
+
+    .faq-question {
+        font-size: 1rem;
+        padding: 0.75rem 0.25rem;
+    }
+
+    .faq-answer {
+        font-size: 0.9rem;
+        line-height: 1.4;
+    }
+
+    /* Features (from before) */
+    .features {
+        grid-template-columns: 1fr;
+        padding: 0 1rem;
+    }
+
+    /* Testimonials */
+    .test-grid {
+        grid-template-columns: 1fr;
+        padding: 0 1rem;
+    }
+
+    /* CTA */
+    .cta-section {
+        flex-direction: column;
+        align-items: flex-start;
+        text-align: left;
+        gap: 1rem;
+        padding: 1.5rem;
+    }
+
+    .cta-left p {
+        font-size: 0.9rem;
+    }
+
+    .cta-actions {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .cta-actions a {
+        width: 100%;
+        text-align: center;
+    }
+
+    /* Footer */
+    .site-footer {
+        flex-direction: column;
+        text-align: center;
+        gap: 0.75rem;
+    }
+
+}
+
+/* ===============================
+   Section General Styles
+   =============================== */
+section {
+    padding: 80px 20px;
+    color: #fff;
+    font-family: 'Segoe UI', sans-serif;
+    position: relative;
+    overflow: hidden;
+    transition: background 0.3s ease;
+}
+
+/* ===============================
+   Section Background Gradients
+   =============================== */
+.section-1 {
+    background: linear-gradient(135deg, #0a0a0a, #1a1a1a);
+}
+
+.section-2 {
+    background: linear-gradient(135deg, #1a0a2a, #2a0aff);
+}
+
+.section-3 {
+    background: linear-gradient(135deg, #0a1a2a, #00f0ff);
+}
+
+.section-4 {
+    background: linear-gradient(135deg, #2a002a, #ff2dca);
+}
+
+/* ===============================
+   Headings and Text
+   =============================== */
+h2,
+h3 {
+    font-size: 2.5rem;
+    color: #00f0ff;
+    margin-bottom: 20px;
+}
+
+p {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    color: #ffffffcc;
+}
+
+/* ===============================
+   Buttons with Subtle Hover
+   =============================== */
+.btn-neon {
+    color: #fff;
+    background: #00f0ff;
+    border: 2px solid #00f0ff;
+    padding: 12px 30px;
+    border-radius: 8px;
+    font-weight: bold;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.btn-neon:hover {
+    background: #fff;
+    color: #00f0ff;
+    transform: scale(1.05);
+    border-color: #00f0ff;
+}
+
+/* ===============================
+   Floating / Motion Animation (Optional)
+   =============================== */
+.float {
+    display: inline-block;
+    transition: transform 0.3s ease;
+}
+
+.float:hover {
+    transform: translateY(-10px);
+}
+
+/* ===============================
+   Fade-In Scroll Animation
+   =============================== */
+.fade-in {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 1s ease-out, transform 1s ease-out;
+}
+
+.fade-in.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* ===============================
+   Section Accent Lines / Shapes
+   =============================== */
+.section-1::before,
+.section-2::before,
+.section-3::before,
+.section-4::before {
+    content: "";
+    position: absolute;
+    width: 200%;
+    height: 2px;
+    background: rgba(255, 255, 255, 0.2);
+    top: 10%;
+    left: -50%;
+    transform: rotate(10deg);
+    animation: slideLine 6s linear infinite;
+}
+
+@keyframes slideLine {
+    0% {
+        left: -50%;
+    }
+
+    100% {
+        left: 100%;
+    }
+}
+
+/* ===============================
+   Responsive Adjustments
+   =============================== */
+@media screen and (max-width: 768px) {
+
+    h2,
+    h3 {
+        font-size: 2rem;
+    }
+
+    p {
+        font-size: 1rem;
+    }
+
+    .btn-neon {
+        padding: 10px 20px;
+        font-size: 0.9rem;
+    }
+}
+
+.restrobotss {
+    margin-top: 53vw;
+    font-family: Nunito, sans-serif;
+    font-weight: 700;
+    margin-left: auto;
+    margin-right: auto;
+    font-size: clamp(10px, 7vw, 80px);
+    margin-bottom: clamp(16px, 8vw, 96px);
+
+}
+
+
+
+.firstbot {
+    display: flex;
+    margin-right: clamp(8px, 2vw, 64px);
+    margin-left: clamp(8px, 5vw, 64px);
+    justify-content: space-around;
+    margin-bottom: clamp(16px, 15vw, 128px);
+}
+
+.firstbot div h3 {
+    font-size: clamp(10px, 6vw, 60px);
+    font-family: Nunito, sans-serif;
+}
+
+.firstbot div p {
+    font-size: clamp(10px, 4vw, 30px);
+    font-family: Nunito, sans-serif;
+}
+
+
+.firstbot img {
+    width: 22vw;
+
+}
+
+/******************************/
+/* SEC BOT */
+.secbot {
+    display: flex;
+    margin-right: clamp(8px, 2vw, 64px);
+    margin-left: clamp(8px, 5vw, 64px);
+    justify-content: space-around;
+}
+
+.secbot div h3 {
+    font-size: clamp(10px, 6vw, 60px);
+    font-family: Nunito, sans-serif;
+}
+
+.secbot div p {
+    font-size: clamp(10px, 4vw, 30px);
+    font-family: Nunito, sans-serif;
+}
+
+
+
+.secbot img {
+    width: 24vw;
+
+}
+
+.interest {
+    margin: clamp(16px, 8vw, 64px) auto;
+    text-align: center;
+}
+
+.interest a {
+    height: clamp(8px, 16vw, 64px);
+    padding: 16px;
+    font-size: clamp(8px, 8vw, 32px);
+}
+
+.interest h1 {
+    margin-bottom: clamp(8px, 4vw, 32px);
+}
+
+.feature-card div p {
+    font-size: clamp(8px, 6vw, 20px);
+}
+
+.feature-card h1 {
+    font-size: clamp(8px, 7vw, 40px);
+}

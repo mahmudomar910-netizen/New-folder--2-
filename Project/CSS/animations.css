@@ -1,0 +1,188 @@
+    /***********FONTS***********/
+
+    .plus-jakarta-sans-sann {
+        font-family: "Plus Jakarta Sans", sans-serif;
+        font-optical-sizing: auto;
+        font-weight: 500;
+        font-style: normal;
+    }
+
+    .encode-sans-ene {
+        font-family: "Encode Sans", sans-serif;
+        font-optical-sizing: auto;
+        font-weight: 500;
+        font-style: normal;
+        font-variation-settings:
+            "wdth" 100;
+    }
+
+    .geist-ges {
+        font-family: "Geist", sans-serif;
+        font-optical-sizing: auto;
+        font-weight: 500;
+        font-style: normal;
+    }
+
+    .lora-lorra {
+        font-family: "Lora", serif;
+        font-optical-sizing: auto;
+        font-weight: 600;
+        font-style: normal;
+    }
+
+
+    /**********ANIMATIONS*********/
+
+    .animated-gradient {
+        background: linear-gradient(270deg, #a960ee, #ff333d, #ffcb57, #a960ee);
+        background-size: 400% 400%;
+        animation: gradientFlow 6s ease infinite;
+        color: white;
+        /* text stays visible */
+    }
+
+    @keyframes gradientFlow {
+        0% {
+            background-position: 0% 50%;
+        }
+
+        50% {
+            background-position: 100% 50%;
+        }
+
+        100% {
+            background-position: 0% 50%;
+        }
+    }
+
+    .testbt {
+        width: 100px;
+        height: 60px;
+        transition: all 0.5s ease-in-out 0s;
+        /* property | duration | timing | delay */
+        margin: 50px auto;
+    }
+
+    .testbt:hover {
+        background-color: dodgerblue;
+        transform: scale(1.2);
+    }
+
+    .animate-on-scroll {
+        opacity: 0;
+        transition: opacity 300ms ease-in, transform 500ms ease-in;
+    }
+
+    .animate-on-scroll.is-visible {
+        opacity: 1;
+        transform: translateX(0) translateY(0);
+    }
+
+    /* Starting positions for different effects */
+    .from-left {
+        transform: translateX(-50px);
+    }
+
+    .from-right {
+        transform: translateX(50px);
+    }
+
+    .fade-in {
+        transform: translateY(60px);
+        transition-duration: 300ms;
+    }
+
+
+    /* New Animation Types */
+
+    /* Fade-in from Bottom */
+    .fade-in-bottom {
+        transform: translateY(20px);
+    }
+
+    /* Slide in from the Left */
+    .slide-in-left {
+        transform: translateX(-100px);
+    }
+
+    /* Slide in from the Right */
+    .slide-in-right {
+        transform: translateX(100px);
+    }
+
+    /* Zoom In (starts smaller) */
+    .zoom-in {
+        transform: scale(0.6);
+
+    }
+
+    /* Zoom Out (starts larger) */
+    .zoom-out {
+        transform: scale(1.2);
+    }
+
+    /* Rotate and Fade */
+    .rotate-fade {
+        transform: rotate(15deg);
+    }
+
+    /* Flip and Fade */
+    .flip-fade {
+        transform: rotateX(90deg);
+    }
+
+    .fade {
+        transform: scale(1);
+        transition-duration: 300ms;
+        transition-timing-function: ease-in !important;
+    }
+
+
+    .zoom-in2 {
+        transform: scale(0.6);
+        transition-timing-function: ease-in-out;
+        transition-duration: 300ms;
+
+    }
+
+    .zoom-in3 {
+        transform: scale(0.4);
+        transition-timing-function: ease-in;
+        transition-duration: 300ms;
+    }
+
+    .anidelay300 {
+        transition-delay: 300ms;
+    }
+
+    .anidelay400 {
+        transition-delay: 400ms;
+    }
+
+    .anidelay500 {
+        transition-delay: 500ms;
+    }
+
+    .anidelay600 {
+        transition-delay: 600ms;
+    }
+
+    .anidelay700 {
+        transition-delay: 700ms;
+    }
+
+    .anidelay800 {
+        transition-delay: 800ms;
+    }
+
+    .anidelay900 {
+        transition-delay: 900ms;
+    }
+
+    .anidelay1000 {
+        transition-delay: 1000ms;
+    }
+
+    .anidelay1100 {
+        transition-delay: 1100ms;
+    }

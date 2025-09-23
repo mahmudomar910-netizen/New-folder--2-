@@ -1,0 +1,586 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Robojoy - Futuristic Navigation</title>
+    <link rel="stylesheet" href="/Project/CSS/PROJECT.css">
+    <link rel="stylesheet" href="/Project/CSS/nav-dropdown.css">
+    <link rel="stylesheet" href="/Project/CSS/animations.css">
+    <link rel="stylesheet" href="/Project/CSS/slides.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Encode+Sans:wght@100..900&family=Geist:wght@100..900&family=Lora:ital,wght@0,400..700;1,400..700&family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap"
+        rel="stylesheet">
+    <!-- Google Web Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&family=Rubik:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        /* ---------- base / existing styles (kept mostly as-is) ---------- */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background: #0a0e17;
+            color: #fff;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+            background: linear-gradient(45deg, #00f7ff, #00ff95);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            font-family: Geist, sans-serif;
+            font-weight: 400;
+        }
+
+        p {
+            font-size: 18px;
+            line-height: 1.6;
+            max-width: 800px;
+            margin: 0 auto;
+            color: #ccd6f6;
+            font-family: Geist, sans-serif;
+        }
+
+        .material-symbols-outlined {
+            font-variation-settings:
+                'FILL' 1,
+                'wght' 300,
+                'GRAD' 0,
+                'opsz' 24
+        }
+
+        /* SLIDES */
+        .slideshow {
+            position: absolute;
+            height: fit-content;
+            max-height: fit-content;
+            width: 100%;
+            aspect-ratio: 16/9;
+            overflow: hidden;
+            margin: auto;
+            box-sizing: border-box;
+            z-index: 100;
+            top: 80px;
+        }
+
+        .slides {
+            display: flex;
+            width: 400%;
+            height: 100%;
+            max-height: 83%;
+            animation: slide 18s infinite;
+            animation-timing-function: ease-in-out;
+            will-change: transform;
+        }
+
+        .slide {
+            flex: 0 0 25%;
+            height: 100%;
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+
+        @keyframes slide {
+            0% { transform: translateX(0%); }
+            30.30303% { transform: translateX(0%); }
+            33.33333% { transform: translateX(-25%); }
+            63.63636% { transform: translateX(-25%); }
+            66.66666% { transform: translateX(-50%); }
+            96.96969% { transform: translateX(-50%); }
+            100% { transform: translateX(-75%); }
+        }
+
+        .mainbg {
+            display: flex;
+            position: absolute;
+            top: 80px;
+            z-index: 2000;
+            aspect-ratio: 16/9;
+            background: linear-gradient(180deg, rgba(19,17,116,0.45), rgba(10,14,23,0.25));
+            margin-bottom: 64px;
+            height: 46vw;
+            width: 100%;
+            max-height: 707px;
+            flex-direction: column;
+        }
+
+        .mainbgcontent {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            justify-content: space-between;
+            padding-left: 24%;
+            padding-right: 24%;
+            flex-direction: column;
+            flex-wrap: wrap;
+            align-content: center;
+        }
+
+        .welcome {
+            font-size: clamp(10px, 6vw, 40px);
+            color: white;
+            z-index: 3000;
+        }
+
+        /* fonts helpers */
+        .plus-jakarta-sans-sann { font-family: "Plus Jakarta Sans", sans-serif; }
+        .encode-sans-ene { font-family: "Encode Sans", sans-serif; }
+        .geist-ges { font-family: "Geist", sans-serif; }
+        .lora-lorra { font-family: "Lora", serif; }
+
+        /* animations helpers (kept) */
+        .animated-gradient {
+            background: linear-gradient(270deg, #a960ee, #ff333d, #ffcb57, #a960ee);
+            background-size: 400% 400%;
+            animation: gradientFlow 6s ease infinite;
+            color: white;
+        }
+
+        @keyframes gradientFlow {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        .testbt { width: 100px; height: 60px; transition: all 0.5s ease-in-out 0s; margin: 50px auto; }
+        .testbt:hover { background-color: dodgerblue; transform: scale(1.2); }
+
+        .animate-on-scroll { opacity: 0; transition: opacity 300ms ease-in, transform 500ms ease-in; }
+        .animate-on-scroll.is-visible { opacity: 1; transform: translateX(0) translateY(0); }
+
+        .from-left { transform: translateX(-50px); }
+        .from-right { transform: translateX(50px); }
+        .fade-in { transform: translateY(60px); transition-duration: 300ms; }
+        .fade-in-bottom { transform: translateY(20px); }
+        .slide-in-left { transform: translateX(-100px); }
+        .slide-in-right { transform: translateX(100px); }
+        .zoom-in { transform: scale(0.6); }
+        .zoom-out { transform: scale(1.2); }
+        .rotate-fade { transform: rotate(15deg); }
+        .flip-fade { transform: rotateX(90deg); }
+        .fade { transform: scale(1); transition-duration: 300ms; transition-timing-function: ease-in !important; }
+        .zoom-in2 { transform: scale(0.6); transition-timing-function: ease-in-out; transition-duration: 300ms; }
+        .zoom-in3 { transform: scale(0.4); transition-timing-function: ease-in; transition-duration: 300ms; }
+
+        .anidelay300 { transition-delay: 300ms; }
+        .anidelay400 { transition-delay: 400ms; }
+        .anidelay500 { transition-delay: 500ms; }
+        .anidelay600 { transition-delay: 600ms; }
+        .anidelay700 { transition-delay: 700ms; }
+        .anidelay800 { transition-delay: 800ms; }
+        .anidelay900 { transition-delay: 900ms; }
+        .anidelay1000 { transition-delay: 1000ms; }
+        .anidelay1100 { transition-delay: 1100ms; }
+
+        /* ---------- navigation tweaks (arrows rotate) ---------- */
+        .nav-links { list-style: none; display: flex; gap: 1.25rem; align-items: center; }
+        .nav-links li a { color: white; text-decoration: none; padding: 12px 6px; display: inline-flex; align-items: center; gap: 8px; }
+
+        .has-dropdown > a .arrow,
+        .has-submenu > a .arrow2 { display: inline-block; transition: transform 220ms ease; transform-origin: center; }
+
+        .has-dropdown.open > a .arrow,
+        .has-dropdown.clicked > a .arrow,
+        .has-dropdown.active > a .arrow { transform: rotate(-180deg); }
+
+        .has-submenu.open > a .arrow2,
+        .has-submenu.clicked > a .arrow2,
+        .has-submenu.active > a .arrow2 { transform: rotate(90deg); }
+
+        /* ---------- NEW SECTIONS: Features, Testimonials, CTA, Footer ---------- */
+        .container { width: 100%; padding: 6vw 5vw; margin-top: calc(46vw + 6rem); } /* offset under hero */
+
+        .features {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            align-items: stretch;
+            margin: 2rem auto;
+            max-width: 1200px;
+        }
+
+        .feature-card {
+            background: linear-gradient(180deg, rgba(2,203,186,0.08), rgba(0,255,140,0.04));
+            border: 1px solid rgba(255,255,255,0.03);
+            border-radius: 14px;
+            padding: 2rem;
+            min-height: 220px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            backdrop-filter: blur(6px);
+            box-shadow: 0 8px 30px rgba(0,0,0,0.55);
+            transition: transform 350ms cubic-bezier(.2,.9,.2,1), box-shadow 350ms;
+        }
+
+        .feature-card:hover { transform: translateY(-10px) scale(1.01); box-shadow: 0 18px 40px rgba(0,0,0,0.7); }
+
+        .feature-card h3 { font-size: 1.4rem; margin-bottom: 0.6rem; color: #e7fdf7; }
+        .feature-card p { color: #bcd7ff; font-size: 0.95rem; }
+        .feature-cta { margin-top: 1rem; align-self: flex-start; padding: 8px 14px; border-radius: 10px; border: 2px solid rgba(255,255,255,0.06); text-decoration: none; color: white; font-weight: 600; }
+
+        /* Testimonials */
+        .testimonials { margin: 3rem auto; max-width: 1100px; }
+        .test-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.5rem; }
+        .testimonial { background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.03); padding: 1.25rem; border-radius: 12px; min-height: 140px; display:flex; flex-direction:column; justify-content:space-between; }
+        .testimonial p { color: #cbd7ff; }
+        .testimonial .who { margin-top: 0.8rem; color: #9fd2b7; font-weight: 700; }
+
+        /* CTA */
+        .cta-section { margin: 3.25rem 0; padding: 2.25rem; border-radius: 14px; display:flex; align-items:center; justify-content:space-between; gap: 1rem; }
+        .cta-left h2 { font-size: clamp(18px, 3.6vw, 36px); margin-bottom: 0.4rem; }
+        .cta-left p { color: #dbe8ff; max-width: 640px; }
+        .cta-actions { display:flex; gap: 1rem; }
+        .btn-primary { padding: 12px 18px; border-radius: 10px; text-decoration:none; font-weight:700; background: linear-gradient(90deg,#00f7ff,#00ff95); color:#001; box-shadow: 0 6px 18px rgba(0,255,150,0.12); border: none; }
+        .btn-ghost { padding: 12px 18px; border-radius: 10px; text-decoration:none; color: #cfe8ff; border: 1px solid rgba(255,255,255,0.06); }
+
+        /* Footer */
+        .site-footer { margin-top: 3rem; padding: 2.25rem 5vw; border-top: 1px solid rgba(255,255,255,0.03); display:flex; justify-content:space-between; align-items:center; gap: 1rem; }
+        .site-footer .small { color: #8fabc9; font-size: 0.95rem; }
+
+        /* Responsive */
+        @media (max-width: 920px) {
+            .features { grid-template-columns: repeat(2, 1fr); }
+            .test-grid { grid-template-columns: 1fr; }
+        }
+        @media (max-width: 560px) {
+            .features { grid-template-columns: 1fr; padding: 0 4vw; }
+            .container { margin-top: calc(52vw + 3rem); }
+            .nav-links { display: none; }
+        }
+    </style>
+</head>
+
+<body>
+
+    <nav class="navbar">
+        <a href="1.html">
+            <img src="/Project/images/LOGOOO.png" alt="Robojoy" style="width: 150px;">
+        </a>
+
+        <ul class="nav-links">
+            <li class="home"><a class="flinks" href="home.html">Home</a></li>
+            <li class="has-dropdown products">
+                <a class="flinks" href="#">Products <span class="arrow">▼</span></a>
+                <ul class="dropdown drop1">
+                    <li><a href="assistantrobots.html">Assistant Robots</a></li>
+                    <li><a href="companionrobots.html">Companion Robots</a></li>
+                    <li><a href="petrobots.html">Pet Robots</a></li>
+                </ul>
+            </li>
+
+            <li class="has-dropdown solutions">
+                <a href="#" class="flinks">Solutions <span class="arrow">▼</span></a>
+                <ul class="dropdown">
+                    <li class="has-submenu">
+                        <a href="#">Business Solutions <span class="arrow2">▶</span></a>
+                        <ul class="submenu">
+                            <li><a href="hotelrobots.html">●  Hotel Robots</a></li>
+                            <li><a href="#">●  Healthcare Robots</a></li>
+                            <li><a href="#">●  Delivery Robots</a></li>
+                        </ul>
+                    </li>
+                    <li class="has-submenu">
+                        <a href="#">Industry Solutions <span class="arrow2">▶</span></a>
+                        <ul class="submenu">
+                            <li><a href="#">●  Robotic Robots</a></li>
+                            <li><a href="#">●  Warehouse Robots</a></li>
+                            <li><a href="#">●  Agricultural Robots</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </li>
+
+            <li class="about"><a class="flinks" href="about.html">About</a></li>
+            <li class="contact"><a class="flinks" href="contact.html">Contact</a></li>
+        </ul>
+        <div class="burger" style="display: flex; justify-content: space-between; align-items: center;">
+            <a href="#" class="navquote quote2" style="padding: 10px 20px; margin: 0;">
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                Quote
+            </a>
+            <div class="hamburger" style="margin-left: 20px; cursor:pointer;">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+
+    <!-- ********** SLIDES PHOTOS *********** -->
+    <div class="slideshow animate-on-scroll fade">
+        <div class="slides">
+            <div class="slide" style="background-image: url('/Project/images/20998002-kebbi-robot-teaching-assistan-3840x2160.png');"></div>
+            <div class="slide" style="background-image: url('/Project/images/20998000-kebbi-robot-for-teaching-stem-3840x2160.png');"></div>
+            <div class="slide" style="background-image: url('/Project/images/5289.webp');"></div>
+            <div class="slide" style="background-image: url('/Project/images/20998002-kebbi-robot-teaching-assistan-3840x2160.png');"></div>
+        </div>
+    </div>
+
+    <!-- ********* SLIDES CONTENT ********* -->
+    <div class="slideshow2 animate-on-scroll fade">
+        <div class="slides2">
+            <div class="slide2">
+                <h1 class="animate-on-scroll zoom-in2">Joyful Future <br>Is Here</h1>
+            </div>
+
+            <div class="slide2">
+                <h1>With Robots <br>That Spark Joy</h1>
+            </div>
+
+            <div class="slide2">
+                <h1>Where Innovation<br>Meets Imagination</h1>
+            </div>
+
+            <div class="slide2">
+                <h1>Joyful Future <br>Is Here</h1>
+            </div>
+        </div>
+    </div>
+
+    <div class="mainbg animate-on-scroll fade ">
+        <div class="mainbgcontent">
+            <div class="bgcontent2 animate-on-scroll fade-in">
+                <a href="" class="cta-link">Contact Us</a>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="secpage robotkinds">
+        <div class="firstkind animate-on-scroll zoom-in3 anidelay300"><div>Personal <br> Robots </div> <img src="/Project/images/roboo.png" alt=""></div>
+        <div class="seckind animate-on-scroll zoom-in3 anidelay700"><div>Business <br>Robots </div> <img src="/Project/images/busissss.jpg" alt=""></div>
+        <div class="thirdkind animate-on-scroll zoom-in3 anidelay1000"><div>Industrial <br>Robots</div><img src="/Project/images/robotic-arm-working-stockcake.jpg" alt=""></div>
+    </div>
+
+
+    <div class="container">
+
+        <!-- Intro / welcome (kept) -->
+        <div style="text-align:center; margin-bottom: 1.25rem;">
+            <h1 class="welcome animate-on-scroll zoom-in3 anidelay300">From pet companions to industrial automation, RoboJoy delivers cutting-edge robotic solutions for every need.</h1>
+        </div>
+
+        <!-- FEATURES -->
+        <section class="features animate-on-scroll fade-in-bottom">
+            <article class="feature-card animate-on-scroll zoom-in anidelay300">
+                <div>
+                    <h3>Personal Assistants</h3>
+                    <p>Compact, friendly robots that help around the house — reminders, entertainment, and gentle help with daily tasks.</p>
+                </div>
+                <a class="feature-cta" href="assistantrobots.html">Explore</a>
+            </article>
+
+            <article class="feature-card animate-on-scroll zoom-in anidelay400">
+                <div>
+                    <h3>Business Automation</h3>
+                    <p>Reliable service robots for hospitality and retail — check-ins, deliveries, and customer engagement shaped for real-world use.</p>
+                </div>
+                <a class="feature-cta" href="hotelrobots.html">Learn more</a>
+            </article>
+
+            <article class="feature-card animate-on-scroll zoom-in anidelay500">
+                <div>
+                    <h3>Industrial Solutions</h3>
+                    <p>Modular robotic systems for warehouses and factories — built for precision, uptime, and easy integration with existing workflows.</p>
+                </div>
+                <a class="feature-cta" href="#">Get a quote</a>
+            </article>
+        </section>
+
+        <!-- TESTIMONIALS -->
+        <section class="testimonials">
+            <h2 style="text-align:center; margin-bottom:1rem;" class="animate-on-scroll fade-in">What our customers say</h2>
+            <div class="test-grid">
+                <div class="testimonial animate-on-scroll from-left anidelay400">
+                    <p>"RoboJoy's assistant robot transformed how my elderly parents manage medication reminders. Easy to set up and surprisingly empathetic!"</p>
+                    <div class="who">— Rana M., Beirut</div>
+                </div>
+
+                <div class="testimonial animate-on-scroll from-right anidelay600">
+                    <p>"We reduced delivery times by 35% after introducing RoboJoy units in our hotel chain. Guests loved the novelty — operations loved the reliability."</p>
+                    <div class="who">— Omar K., Operations Manager</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CALL TO ACTION -->
+        <section class="cta-section animated-gradient animate-on-scroll zoom-in2 anidelay700">
+            <div class="cta-left">
+                <h2>Ready to bring robotics into your world?</h2>
+                <p>Talk to our team about a trial, a custom integration, or a quote. We tailor solutions so robotics feels natural — not forced.</p>
+            </div>
+            <div class="cta-actions">
+                <a class="btn-primary" href="contact.html">Request a demo</a>
+                <a class="btn-ghost" href="#">Download brochure</a>
+            </div>
+        </section>
+
+    </div>
+
+    <!-- FOOTER -->
+    <footer class="site-footer">
+        <div class="small">© <span id="year"></span> RoboJoy — All rights reserved.</div>
+        <div class="small">Built with ♥ · <a href="about.html" style="color:#8fbfff; text-decoration:none;">About</a> · <a href="contact.html" style="color:#8fbfff; text-decoration:none;">Contact</a></div>
+    </footer>
+
+
+    <script>
+    /* Final consolidated script (kept logic, fixed a minor bug and removed a broken function) */
+    document.addEventListener('DOMContentLoaded', () => {
+
+        /*************** HAMBURGER *****************/
+        const hamburger = document.querySelector('.hamburger');
+        const navLinks = document.querySelector('.nav-links');
+
+        if (hamburger && navLinks) {
+            hamburger.addEventListener('click', () => {
+                navLinks.classList.toggle('active');
+
+                // When opening hamburger, clear any desktop-only opens so mobile doesn't show them
+                if (navLinks.classList.contains('active')) {
+                    document.querySelectorAll('.has-dropdown, .has-submenu').forEach(el => {
+                        el.classList.remove('open', 'clicked');
+                    });
+                } else {
+                    // when closing hamburger, close mobile dropdowns & submenus
+                    document.querySelectorAll('.has-dropdown, .has-submenu').forEach(el => {
+                        el.classList.remove('active');
+                    });
+                }
+            });
+        }
+
+        /**************** SCROLLING (unchanged) ****************/
+        const elementsToAnimate = document.querySelectorAll('.animate-on-scroll');
+        const observerOptions = { root: null, rootMargin: '0px', threshold: 0.18 };
+        const observer = new IntersectionObserver((entries, observerInstance) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('is-visible');
+                    observerInstance.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+        elementsToAnimate.forEach(el => observer.observe(el));
+
+        /**************** DROPDOWNS + SUBMENUS ****************/
+        const dropdownItems = Array.from(document.querySelectorAll('.has-dropdown'));
+        const submenuItems = Array.from(document.querySelectorAll('.has-submenu'));
+        const CLOSE_DELAY = 220; // ms
+
+        function closeAllDropdowns() {
+            dropdownItems.forEach(i => i.classList.remove('clicked', 'open', 'active'));
+            submenuItems.forEach(s => s.classList.remove('clicked', 'open', 'active'));
+        }
+
+        function isMobileMode() {
+            return (navLinks && navLinks.classList.contains('active')) || window.innerWidth <= 784;
+        }
+
+        dropdownItems.forEach(item => {
+            const trigger = item.querySelector(':scope > a');
+            const menu = item.querySelector('.dropdown');
+            let closeTimer = null;
+
+            function openNow() { if (closeTimer) { clearTimeout(closeTimer); closeTimer = null; } item.classList.add('open'); }
+            function scheduleClose() { if (closeTimer) clearTimeout(closeTimer); closeTimer = setTimeout(() => { if (!item.classList.contains('clicked')) item.classList.remove('open'); }, CLOSE_DELAY); }
+
+            item.addEventListener('mouseenter', () => { if (!isMobileMode() && !item.classList.contains('clicked')) openNow(); });
+            item.addEventListener('mouseleave', () => { if (!isMobileMode() && !item.classList.contains('clicked')) scheduleClose(); });
+
+            if (menu) {
+                menu.addEventListener('mouseenter', () => { if (!isMobileMode()) { if (closeTimer) { clearTimeout(closeTimer); closeTimer = null; } } });
+                menu.addEventListener('mouseleave', () => { if (!isMobileMode() && !item.classList.contains('clicked')) scheduleClose(); });
+            }
+
+            if (trigger) {
+                trigger.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    e.stopPropagation();
+
+                    if (!isMobileMode()) {
+                        const wasClicked = item.classList.contains('clicked');
+                        closeAllDropdowns();
+                        if (!wasClicked) item.classList.add('clicked', 'open');
+                        return;
+                    }
+
+                    if (isMobileMode()) {
+                        dropdownItems.forEach(i => { if (i !== item) i.classList.remove('active'); });
+                        item.classList.toggle('active');
+                        item.classList.remove('open', 'clicked');
+                    }
+                });
+            }
+
+            window.addEventListener('resize', () => {
+                if (window.innerWidth <= 784) { item.classList.remove('open', 'clicked'); } else { item.classList.remove('active'); }
+            });
+        });
+
+        submenuItems.forEach(sub => {
+            const trigger = sub.querySelector(':scope > a');
+            const submenu = sub.querySelector('.submenu');
+            let closeTimer = null;
+            function scheduleSubClose() { if (closeTimer) clearTimeout(closeTimer); closeTimer = setTimeout(() => { if (!sub.classList.contains('clicked')) sub.classList.remove('open'); }, CLOSE_DELAY); }
+            function cancelSubClose() { if (closeTimer) { clearTimeout(closeTimer); closeTimer = null; } }
+
+            sub.addEventListener('mouseenter', () => { if (!isMobileMode() && !sub.classList.contains('clicked')) sub.classList.add('open'); });
+            sub.addEventListener('mouseleave', () => { if (!isMobileMode() && !sub.classList.contains('clicked')) scheduleSubClose(); });
+
+            if (submenu) { submenu.addEventListener('mouseenter', cancelSubClose); submenu.addEventListener('mouseleave', () => { if (!isMobileMode() && !sub.classList.contains('clicked')) scheduleSubClose(); }); }
+
+            if (trigger) {
+                trigger.addEventListener('click', (e) => {
+                    e.preventDefault(); e.stopPropagation();
+                    const wasActive = sub.classList.contains('active');
+                    const parentDropdown = sub.closest('.dropdown') || sub.closest('.has-dropdown') || document;
+                    const siblingSubmenus = Array.from(parentDropdown.querySelectorAll('.has-submenu'));
+                    siblingSubmenus.forEach(s => { if (s !== sub) s.classList.remove('active', 'open', 'clicked'); });
+
+                    if (!wasActive) { sub.classList.add('active', 'clicked', 'open'); } else { sub.classList.remove('active', 'clicked', 'open'); }
+                });
+            }
+
+            window.addEventListener('resize', () => { if (window.innerWidth <= 784) { sub.classList.remove('open', 'clicked'); } else { sub.classList.remove('active'); } });
+        });
+
+        // Global close on outside click & Escape
+        document.addEventListener('click', (e) => {
+            const insideNav = e.target.closest('.navbar') || e.target.closest('.nav-links');
+            if (!insideNav) closeAllDropdowns();
+        });
+        document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeAllDropdowns(); });
+
+        /* small helpers */
+        document.getElementById('year').textContent = new Date().getFullYear();
+
+    });
+    </script>
+</body>
+
+</html>

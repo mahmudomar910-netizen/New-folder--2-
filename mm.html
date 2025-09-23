@@ -1,0 +1,1809 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Robojoy - Futuristic Navigation</title>
+    <link rel="stylesheet" href="/Project/CSS/PROJECT.css">
+    <link rel="stylesheet" href="/Project/CSS/nav-dropdown.css">
+    <link rel="stylesheet" href="/Project/CSS/animations.css">
+    <link rel="stylesheet" href="/Project/CSS/slides.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Encode+Sans:wght@100..900&family=Geist:wght@100..900&family=Lora:ital,wght@0,400..700;1,400..700&family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap"
+        rel="stylesheet">
+       <!-- Google Web Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&family=Rubik:wght@400;500;600;700&display=swap" rel="stylesheet">            
+</head>
+
+<style>
+        * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+
+    }
+
+    body {
+        background: #0a0e17;
+        color: #fff;
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+
+    }
+
+    h1 {
+        font-size: 48px;
+        margin-bottom: 20px;
+        background: linear-gradient(45deg, #00f7ff, #00ff95);
+        -webkit-background-clip: text;
+        background-clip: text;
+        color: transparent;
+        font-family: Geist;
+        font-weight: 400;
+
+    }
+
+    p {
+        font-size: 18px;
+        line-height: 1.6;
+        max-width: 800px;
+        margin: 0 auto;
+        color: #ccd6f6;
+        font-family: Geist;
+    }
+
+
+    .material-symbols-outlined {
+        font-variation-settings:
+            'FILL' 1,
+            'wght' 300,
+            'GRAD' 0,
+            'opsz' 24
+    }
+
+    .secpage {
+        display: flex;
+        width: 100%;
+        z-index: 10000;
+        margin-top: 45vw;
+        padding-left: 5vw;
+        padding-right: 5vw;
+        justify-content: center;
+    }
+
+    .secpage div {
+        display: flex;
+        width: fit-content;
+ 
+    }
+
+    .secpage div div {
+        display: flex;
+        padding: 2vw;
+        font-size: clamp(6px, 4vw, 40px);
+        font-family: Nunito, sans-serif;
+        line-height: 1;
+        width: fit-content;
+    }
+
+    .secpage img {
+        width: 10vw;
+        height: 10vw;
+        padding: 0.5vw;
+    }
+
+
+    .firstkind {
+        background-color: lightseagreen;
+        line-height: 1;
+        border: 3px solid rgba(255, 255, 255, 0);
+    }
+
+    .seckind {
+        background-color: #00ff3c;
+
+    }
+
+    .thirdkind {
+        background-color: #f2c200;
+
+    }
+
+
+    .thirdpage {
+        display: flex;
+        width: 100%;
+        z-index: 10000;
+        margin-top: 52vw;
+        padding: 0 32px;
+        padding-right: 5vw;
+        justify-content: space-around;
+
+    }
+
+
+    .welcome {
+        font-size: clamp(10px, 6vw, 40px);
+
+        color: white;
+        z-index: 3000;
+    }
+
+        .slideshow {
+        position: absolute;
+        height: fit-content;
+        max-height: fit-content;
+        width: 100%;
+        aspect-ratio: 16/9;
+        /* keep widescreen ratio */
+        overflow: hidden;
+        margin: auto;
+        box-sizing: border-box;
+        z-index: 100;
+        top: 80px;
+
+    }
+
+    /**** SLIDESSSS CONTTENTTTTTTT ********/
+    /* 4 slides total (3 unique + 1 duplicate) -> .slides width = 400% */
+    .slides {
+        display: flex;
+        width: 400%;
+        height: 100%;
+        max-height: 83%;
+        animation: slide 18s infinite;
+        animation-timing-function: ease-in-out;
+        /* consistent movement during the small slide windows */
+        will-change: transform;
+
+    }
+
+    /* each slide takes exactly 25% of the .slides row (=> 100% of the .slideshow viewport) */
+    .slide {
+        flex: 0 0 25%;
+        height: 100%;
+        background-size: cover;
+        /* fill area (use contain if you prefer letterboxing) */
+        background-position: center;
+        background-repeat: no-repeat;
+    }
+
+    /* Keyframes computed for: 10s hold + 1s slide (per image) over 33s total */
+    @keyframes slide {
+        0% {
+            transform: translateX(0%);
+        }
+
+        /* show slide 1 */
+        30.30303% {
+            transform: translateX(0%);
+        }
+
+        /* hold ~10s */
+        33.33333% {
+            transform: translateX(-25%);
+        }
+
+        /* quick slide -> slide 2 */
+        63.63636% {
+            transform: translateX(-25%);
+        }
+
+        /* hold slide 2 (~10s) */
+        66.66666% {
+            transform: translateX(-50%);
+        }
+
+        /* quick slide -> slide 3 */
+        96.96969% {
+            transform: translateX(-50%);
+        }
+
+        /* hold slide 3 (~10s) */
+        100% {
+            transform: translateX(-75%);
+        }
+
+        /* slide to duplicate (same as slide 1) */
+    }
+
+
+    .mainbg {
+        display: flex;
+        position: absolute;
+        top: 80px;
+        z-index: 2000;
+        aspect-ratio: 16/9;
+        background: #1311745e;
+        margin-bottom: 64px;
+        height: 46vw;
+   
+        width: 100%;
+        max-height: 707px;
+        flex-direction: column;
+    }
+
+    .mainbgcontent {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        justify-content: space-between;
+        padding-left: 24%;
+        padding-right: 24%;
+        flex-direction: column;
+        flex-wrap: wrap;
+        align-content: center;
+    }
+
+    .leftarrow {
+        min-height: 100%;
+        padding-top: 30%;
+        padding-bottom: 40%;
+        text-decoration: 0;
+
+    }
+
+    
+    .navbar {
+        background: rgba(10, 14, 23, 0.85);
+        backdrop-filter: blur(10px);
+        border-bottom: 1px solid rgba(0, 247, 255, 0.589);
+        padding: 12px 20px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        position: sticky;
+        top: 0;
+        z-index: 1000000;
+        box-shadow: 0 5px 25px rgba(0, 247, 255, 0.1);
+    }
+
+
+    .nav-links {
+        display: flex;
+        list-style: none;
+    }
+
+    .nav-links li {
+        height: fit-content;
+        margin: auto 15px;
+        position: relative;
+    }
+
+
+    .nav-links .home {
+        order: 1;
+    }
+
+    .nav-links .products {
+        order: 2;
+    }
+
+    .nav-links .solutions {
+        order: 3;
+    }
+
+    .nav-links .about {
+        order: 4;
+    }
+
+    .nav-links .contact {
+        order: 5;
+    }
+
+    .nav-links .liquote {
+        order: 6;
+    }
+
+
+
+    .flinks {
+        color: #ccd6f6;
+        text-decoration: none;
+        font-size: 20px;
+        font-weight: 500;
+        padding: 0px 0;
+        transition: all 0.3s ease;
+        letter-spacing: 0.5px;
+        margin-top: 0px;
+    }
+
+    .flinks::before {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 0;
+        height: 2px;
+        background: linear-gradient(90deg, #00f7ff, #00ff95);
+        transition: width 0.3s ease;
+    }
+
+    .flinks:hover {
+        color: #00f7ff;
+        text-shadow: 0 0 10px rgba(0, 247, 255, 0.7);
+    }
+
+    .flinks:hover::before {
+        width: 100%;
+    }
+
+    .nav-links button {
+        width: 64px;
+        height: 32px;
+        border-radius: 16px;
+        border: solid white 3px;
+    }
+
+
+    .hamburger {
+        display: none;
+        flex-direction: column;
+        cursor: pointer;
+    }
+
+    .hamburger span {
+        width: 25px;
+        height: 3px;
+        background: #00f7ff;
+        margin: 2px 0;
+        transition: all 0.3s ease;
+        border-radius: 2px;
+    }
+
+
+    .hamburger span:hover {
+        width: 25px;
+        height: 3px;
+        background: #00f7ff;
+        margin: 2px 0;
+        transition: all 0.3s ease;
+        border-radius: 2px;
+    }
+
+    .content {
+        padding: 50px;
+        text-align: center;
+        margin-top: 50px;
+    }
+
+
+
+    @media screen and (max-width: 784px) {
+        .navbar {
+            padding: 12px 20px;
+        }
+
+        .nav-links {
+            position: fixed;
+            top: 70px;
+            left: 0;
+            background: rgba(10, 14, 23, 0.95);
+            width: 100%;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px 0;
+            clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
+            transition: all 0.4s ease-in-out;
+        }
+
+        .nav-links.active {
+            clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+        }
+
+        .nav-links li {
+            margin: 20px 0;
+        }
+
+        .hamburger {
+            display: flex;
+        }
+    }
+
+    /*     QUOTE      */
+    /*****************/
+    /*****************/
+
+
+    .lora-lorra {
+        font-family: "Lora", serif;
+        font-optical-sizing: auto;
+        font-weight: 600;
+        font-style: normal;
+    }
+
+    .navquote {
+        position: relative;
+        display: inline-block;
+        padding: 10px 20px;
+        color: #03e9f4;
+        font-size: 16px;
+        text-decoration: none;
+        text-transform: uppercase;
+        overflow: hidden;
+        transition: .5s;
+        margin-top: 0px;
+        letter-spacing: 2px;
+        background-color: #0a0e17;
+        font-weight: 500;
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+        border: solid 1px rgba(255, 255, 255, 0.353);
+        box-shadow: 1px 0px 0px rgba(255, 255, 255, 0.418), ;
+    }
+
+    .navquote:hover {
+        background: #03e9f4;
+        color: #fff;
+        border-radius: 5px;
+        box-shadow: 0 0 5px #03e9f4,
+            0 0 25px #03e9f4,
+            0 0 50px #03e9f4,
+            0 0 100px #03e9f4;
+    }
+
+    .navquote:active {
+        background-color: #078b92;
+        color: #03e9f4;
+    }
+
+    .navquote span {
+        position: absolute;
+        display: block;
+    }
+
+    .navquote span:nth-child(1) {
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 2px;
+        background: linear-gradient(90deg, transparent, #03e9f4);
+        animation: btn-anim1 1s linear infinite;
+    }
+
+    @keyframes btn-anim1 {
+        0% {
+            left: -100%;
+        }
+
+        50%,
+        100% {
+            left: 100%;
+        }
+    }
+
+    .navquote span:nth-child(2) {
+        top: -100%;
+        right: 0;
+        width: 2px;
+        height: 100%;
+        background: linear-gradient(180deg, transparent, #03e9f4);
+        animation: btn-anim2 1s linear infinite;
+        animation-delay: .25s
+    }
+
+    @keyframes btn-anim2 {
+        0% {
+            top: -100%;
+        }
+
+        50%,
+        100% {
+            top: 100%;
+        }
+    }
+
+    .navquote span:nth-child(3) {
+        bottom: 0;
+        right: -100%;
+        width: 100%;
+        height: 2px;
+        background: linear-gradient(270deg, transparent, #03e9f4);
+        animation: btn-anim3 1s linear infinite;
+        animation-delay: .5s
+    }
+
+    @keyframes btn-anim3 {
+        0% {
+            right: -100%;
+        }
+
+        50%,
+        100% {
+            right: 100%;
+        }
+    }
+
+    .navquote span:nth-child(4) {
+        bottom: -100%;
+        left: 0;
+        width: 2px;
+        height: 100%;
+        background: linear-gradient(360deg, transparent, #03e9f4);
+        animation: btn-anim4 1s linear infinite;
+        animation-delay: .75s
+    }
+
+    @keyframes btn-anim4 {
+        0% {
+            bottom: -100%;
+        }
+
+        50%,
+        100% {
+            bottom: 100%;
+        }
+    }
+
+
+    /* ================== DROPDOWN MENU ================== */
+    /* ================== DROPDOWN MENU ================== */
+    .has-dropdown {
+        position: relative;
+    }
+
+
+
+    .dropdown {
+        list-style: none;
+        position: absolute;
+        top: 100%;
+        margin-top: 8px;
+        left: 0;
+        background: rgba(10, 14, 23, 0.95);
+        border: 1px solid rgba(0, 247, 255, 0.2);
+        min-width: 220px;
+        padding: 10px 0;
+        border-radius: 8px;
+        display: flex;
+        flex-direction: column;
+        box-shadow: 0 8px 20px rgba(0, 247, 255, 0.15);
+        opacity: 0;
+        transform: translateY(10px);
+        pointer-events: none;
+        transition: all 0.35s ease;
+        z-index: 1000000 !important;
+    }
+
+    .dropdown li {
+        z-index: 1000000 !important;
+        margin: 0;
+    }
+
+    .dropdown a {
+        display: block;
+        padding: 10px 20px;
+        color: #ccd6f6;
+        font-size: 18px;
+        text-decoration: none;
+        transition: all 0.3s ease;
+        z-index: 1000000;
+
+    }
+
+    .dropdown a:hover {
+        color: #00f7ff;
+        background: rgba(0, 247, 255, 0.1);
+        text-shadow: 0 0 8px rgba(0, 247, 255, 0.6);
+    }
+
+    /* Arrow style */
+    .arrow {
+        margin-left: 5px;
+        font-size: 12px;
+        display: inline-block;
+        transition: transform 0.35s ease;
+    }
+
+    /* Desktop hover effect */
+    .has-dropdown:hover .dropdown {
+        opacity: 1;
+        transform: translateY(0);
+        pointer-events: auto;
+    }
+
+    .has-dropdown:hover .arrow {
+        transform: rotate(180deg);
+    }
+
+    /* Mobile behavior */
+    @media screen and (max-width: 784px) {
+        .dropdown {
+            list-style: none;
+            position: absolute;
+            top: 100%;
+            /* pushes it a bit lower */
+            left: 0;
+            background: rgba(10, 14, 23, 0.7);
+            /* semi-transparent */
+            backdrop-filter: blur(8px);
+            /* frosted glass effect */
+            border: 1px solid rgba(0, 247, 255, 0.2);
+            min-width: 180px;
+            padding: 12px 0;
+            border-radius: 8px;
+            display: flex;
+            flex-direction: column;
+            box-shadow: 0 8px 20px rgba(0, 247, 255, 0.15);
+            opacity: 0;
+            transform: translateY(-10px);
+            pointer-events: none;
+            transition: all 0.35s ease;
+            z-index: 1000;
+        }
+
+
+        .has-dropdown.active .dropdown {
+            opacity: 1;
+            max-height: 500px;
+            /* enough space for items */
+            pointer-events: auto;
+        }
+
+        .has-dropdown>a {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .has-dropdown:hover .arrow {
+            transform: rotate(0deg) !important;
+        }
+
+        .has-dropdown.active .arrow {
+            transform: rotate(180deg) !important;
+        }
+
+
+    }
+
+    /* Arrow animation (works on both desktop + mobile) */
+    .arrow {
+        margin-left: 6px;
+        font-size: 12px;
+        display: inline-block;
+        transform-origin: center;
+        transition: transform 0.35s cubic-bezier(.2, .9, .2, 1), text-shadow 0.35s ease;
+    }
+
+    /* Flip + glow */
+    .has-dropdown:hover .arrow,
+    .has-dropdown.active .arrow {
+        transform: rotate(180deg);
+        text-shadow: 0 0 6px rgba(0, 247, 255, 0.6);
+    }
+
+    /* Dropdown glow when visible */
+    .has-dropdown:hover .dropdown,
+    .has-dropdown.active .dropdown {
+        box-shadow: 0 10px 25px rgba(0, 247, 255, 0.3),
+            0 0 15px rgba(0, 247, 255, 0.2);
+        border-color: rgba(0, 247, 255, 0.4);
+    }
+
+
+    
+    /* Base hidden state (keep your look/animations) */
+    .has-dropdown .dropdown {
+        opacity: 0;
+        visibility: hidden;
+        transform: translateY(10px);
+        pointer-events: none;
+        transition: opacity 0.32s ease, transform 0.32s ease, visibility 0.32s;
+        z-index: 2000;
+        /* make sure it sits above page content */
+    }
+
+    /* Visible states - hover, JS-open, or mobile-active */
+    .has-dropdown:hover .dropdown,
+    .has-dropdown.open .dropdown,
+    .has-dropdown.active .dropdown {
+        opacity: 1;
+        visibility: visible;
+        transform: translateY(0);
+        pointer-events: auto;
+    }
+
+    /* Arrow rotation for same visible states */
+    .has-dropdown>a .arrow {
+        display: inline-block;
+        transform-origin: center;
+        transition: transform 0.32s cubic-bezier(.2, .9, .2, 1), text-shadow 0.32s;
+    }
+
+    .has-dropdown:hover>a .arrow,
+    .has-dropdown.open>a .arrow,
+    .has-dropdown.active>a .arrow {
+        transform: rotate(180deg);
+        text-shadow: 0 0 6px rgba(0, 247, 255, 0.6);
+    }
+
+    /* Click-outside/keyboard-friendly: small focus style */
+    .has-dropdown>a:focus {
+        outline: none;
+        /* optionally show focus ring:
+     box-shadow: 0 0 0 3px rgba(0,247,255,0.08);
+  */
+    }
+
+    .drop2 {
+        width: 190px;
+    }
+
+    /* ================== MOBILE & DROPDOWN RULES ================== */
+    @media screen and (max-width: 784px) {
+
+        /* --- Core Navigation Styles --- */
+        .navbar {
+            padding: 12px 20px;
+        }
+
+        .nav-links {
+            position: fixed;
+            top: 70px;
+            left: 0;
+            width: 100%;
+            background: rgba(10, 14, 23, 0.95);
+            flex-direction: column;
+            align-items: flex-start;
+            padding: 0;
+            /* Hides the menu by default */
+            clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
+            transition: all 0.4s ease-in-out;
+            overflow-y: auto;
+            /* Allows scrolling on long menus */
+            z-index: 999;
+        }
+
+        .nav-links .about {
+            order: 1;
+        }
+
+        .nav-links .products {
+            order: 2;
+        }
+
+        .nav-links .solutions {
+            order: 3;
+        }
+
+        .nav-links .contact {
+            order: 4;
+        }
+
+        .nav-links.active {
+            /* Makes the menu visible */
+            clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+        }
+
+        .nav-links li {
+            width: 100%;
+            margin: 0;
+        }
+
+        .nav-links li a.flinks {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+            padding: 20px 32px;
+            border-bottom: 1px solid rgba(0, 247, 255, 0.05);
+        }
+
+        .navquote {
+            margin: 20px 24px;
+        }
+
+        .hamburger {
+            display: flex;
+        }
+
+        /* --- Dropdown Specific Styles --- */
+        .has-dropdown .dropdown {
+            position: static;
+            width: 100%;
+            /* Hides dropdown by default using max-height for animation */
+            max-height: 0;
+            opacity: 0;
+            visibility: hidden;
+            overflow: hidden;
+            transition: max-height 0.28s ease, opacity 0.28s ease;
+            padding: 0;
+            margin: 0;
+            flex-direction: column;
+            border: none;
+            box-shadow: none;
+            background: rgba(10, 14, 23, 0.9);
+        }
+
+        /* Shows the dropdown when the parent is clicked (has the 'active' class) */
+        .has-dropdown.active .dropdown {
+            max-height: 520px;
+            /* Needs to be large enough for all items */
+            opacity: 1;
+            visibility: visible;
+            pointer-events: auto;
+        }
+
+        /* Styles for the items inside the mobile dropdown */
+        .has-dropdown .dropdown li a {
+            padding: 12px 30px;
+            /* Indent the sub-items */
+            width: 100%;
+        }
+
+        /* Arrow rotation on click */
+        .has-dropdown>a .arrow {
+            margin: 0px;
+            transition: transform 0.32s ease;
+        }
+
+        .has-dropdown.active .dropdown {
+            border: solid 1px;
+            border-color: rgba(0, 247, 255, 0.7);
+        }
+
+        .has-dropdown.active ul li a {
+            padding: 16px 40px;
+        }
+
+        .drop1 li:nth-child(2) {
+            border-top: solid 1px;
+            border-bottom: solid 1px;
+            border-color: rgba(0, 247, 255, 0.2);
+        }
+
+        .drop1 li:nth-child(3) {
+            border-bottom: solid 1px;
+            border-color: rgba(0, 247, 255, 0.2);
+        }
+
+        .drop2 li:nth-child(2) {
+            border-top: solid 1px;
+            border-color: rgba(0, 247, 255, 0.2);
+        }
+
+        .has-dropdown.active .dropdown {
+            box-shadow: 0 10px 25px rgba(0, 247, 255, 0.2),
+                0 0 15px rgba(0, 247, 255, 0.2);
+            border-color: rgba(0, 247, 255, 0.4);
+        }
+
+        .has-submenu a .arrow2 {
+            display: inline-block;
+            font-size: 12px;
+            margin-left: 8px;
+            transform: rotate(0deg);
+            /* ▶ right */
+            transition: transform 0.3s ease;
+        }
+
+        .contact {
+            border-bottom: solid 3px rgb(0, 140, 255);
+        }
+
+        /* Rotate to point left (◀) when submenu is active */
+        .has-submenu.active a .arrow2 {
+            transform: rotate(-180deg);
+            /* ◀ left */
+        }
+
+
+
+        /* Rotate to point left (◀) when submenu is active */
+        .has-submenu.active a .arrow2 {
+            transform: rotate(180deg) !important;
+            /* ◀ left */
+        }
+
+        /* ensure submenu trigger layout is touch-friendly */
+        .has-submenu>a {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 12px 18px;
+            width: 100%;
+            cursor: pointer;
+            text-decoration: none;
+        }
+
+
+
+        /* submenu collapsed by default in mobile
+           --- UPDATED: make submenu static in mobile so it expands inline (was absolute & off-screen) --- */
+        .has-submenu .submenu {
+            position: static;
+            /* <-- key fix for mobile */
+            top: auto;
+            left: auto;
+            transform: none;
+            width: 100%;
+            box-shadow: none;
+            border: none;
+            max-height: 0;
+            overflow: hidden;
+            opacity: 0;
+            visibility: hidden;
+            transition: max-height 0.28s ease, opacity 0.22s ease;
+            padding-left: 24px;
+            /* control indentation inside mobile menu */
+            margin: 0;
+        }
+
+        /* open state for mobile */
+        .has-submenu.active>.submenu {
+            max-height: 600px;
+            /* large enough for content; adjust if needed */
+            opacity: 1;
+            visibility: visible;
+
+        }
+
+        .quote2 {
+            visibility: visible !important;
+            order: 2;
+        }
+
+        .burger {
+            visibility: visible !important;
+            order: 1;
+        }
+
+        .submenu {
+            padding-top: 0 !important;
+            padding-bottom: 0 !important;
+
+        }
+
+        .has-submenu:nth-child(2) {
+            border-top: solid 1px;
+            border-color: rgba(0, 247, 255, 0.5);
+        }
+
+        .submenu li {
+            display: flex;
+            align-items: center;
+        }
+
+        .submenu li:nth-child(1) {
+            border-top: 1px solid rgba(255, 255, 255, 0.34) !important;
+        }
+
+    }
+
+    .material-symbols-outlined {
+        width: 5px;
+        height: 5px;
+    }
+
+    .has-submenu a {
+        padding-right: 12px;
+    }
+
+    .quote2 {
+        order: 1;
+    }
+
+    .hamburger {
+
+        order: 2;
+
+    }
+
+    /* Style for submenus (second-level dropdowns) */
+
+
+    /* Submenu base */
+    .submenu {
+        position: absolute;
+        top: 0;
+        left: 100%;
+        background: rgba(10, 14, 23, 0.95);
+        min-width: 200px;
+        list-style: none;
+        padding: 10px 0;
+        margin: 0;
+        opacity: 0;
+        visibility: hidden;
+        transform: translateY(10px);
+        transition: all 0.3s ease;
+        border: 1px solid rgba(0, 247, 255, 0.2);
+        box-shadow: 0 5px 15px rgba(0, 247, 255, 0.1);
+        z-index: 2000;
+        border-radius: 8px;
+    }
+
+    /* Show on hover OR if active class is set */
+    .has-submenu:hover>.submenu,
+    .has-submenu.active>.submenu {
+        opacity: 1;
+        visibility: visible;
+        transform: translateY(0);
+    }
+
+    /* Arrow style */
+    /* Default arrow points right */
+    /* Default arrow points right */
+    /* Default arrow points right (▶) */
+    .has-submenu a .arrow2 {
+        display: inline-block;
+        font-size: 12px;
+        margin-left: 8px;
+        transform: rotate(0deg);
+        /* ▶ right */
+        transition: transform 0.3s ease;
+    }
+
+    /* Rotate to point left (◀) when submenu is active */
+    .has-submenu.active a .arrow2 {
+        transform: rotate(-180deg);
+        /* ◀ left */
+    }
+
+    /* Prevent hover from forcing rotation */
+    .has-submenu:hover a .arrow2 {
+        transform: rotate(180deg);
+        /* stays ▶ until clicked */
+    }
+
+    /* Rotate to point left (◀) when submenu is active */
+    .has-submenu.active a .arrow2 {
+        transform: rotate(180deg);
+        /* ◀ left */
+    }
+
+    .has-dropdown>a {
+        color: #ccd6f6;
+        text-decoration: none;
+        font-size: 20px;
+        font-weight: 500;
+        padding: 0px 0;
+        transition: all 0.3s ease;
+        letter-spacing: 0.5px;
+        margin-top: 0px;
+    }
+
+
+    /* ======= ADDED: Mobile arrow orientation override (closed: down, opened: up) ======= */
+    /* This block is intentionally placed at the end so it overrides earlier arrow rules */
+    @media screen and (max-width: 784px) {
+
+        /* closed = down (rotate the right-arrow 90deg) */
+        .has-submenu>a .arrow2 {
+            transform: rotate(90deg) !important;
+            transition: transform 0.28s ease;
+            transform-origin: center;
+        }
+
+
+
+        /* opened = up (rotate to -90deg) */
+        .has-submenu.active>a .arrow2,
+        .has-submenu.open>a .arrow2,
+        .has-submenu.clicked>a .arrow2 {
+            transform: rotate(-90deg) !important;
+        }
+
+        
+    }
+
+    /*     NNNNNAAAAAAAAAAAAAVVVVV     */
+    /*  ////////////////////////////// */
+
+    /******************/
+    /******************/
+    /* END OF NAVBAR * /
+    /******************/
+    /******************/
+
+
+
+
+    .leftarrow a,
+    .rightarrow a {
+        min-height: 100%;
+        padding-bottom: 40%;
+        text-align: 0;
+        text-decoration: 0;
+        font-size: 64px;
+
+    }
+
+    .welcomme {
+        z-index: 20010;
+        color: white;
+    }
+
+
+    .slideshow2 {
+        position: absolute;
+        min-height: fit-content;
+        width: 100%;
+        max-height: 90%;
+        aspect-ratio: 16/9;
+        /* keep widescreen ratio */
+        overflow: hidden;
+        margin: auto;
+        box-sizing: border-box;
+        z-index: 20010;
+        top: 80px;
+
+    }
+
+
+    /* 4 slides total (3 unique + 1 duplicate) -> .slides width = 400% */
+    .slides2 {
+        display: flex;
+        width: 400%;
+        height: 100%;
+        animation: slide 18s infinite;
+        animation-timing-function: ease-in-out;
+        /* consistent movement during the small slide windows */
+        will-change: transform;
+
+    }
+
+    .slide2 h1 {
+        z-index: 10000;
+        font-size: clamp(40px, 8vw, 100px);
+        margin: 0 auto;
+        margin-top: clamp(10px, 13vw, 450px);
+        text-align: center;
+        width: fit-content;
+        line-height: 1.1;
+        font-weight: 700;
+        font-family: Nunito, sans-serif;
+        color: white;
+        text-shadow: 5px 5px 5px rgb(17, 0, 103), -5px 5px 5px rgb(17, 0, 103), -5px -5px 5px rgb(17, 0, 103), 5px -5px 5px rgb(17, 0, 103), 5px 0px 5px rgb(17, 0, 103),  0px 5px 5px rgb(17, 0, 103), -5px 0px 5px rgb(17, 0, 103), 0px -5px 5px rgb(17, 0, 103),     5px 5px 3px rgb(2, 203, 186), -5px 5px 5px rgb(2, 203, 186), -5px -5px 5px rgb(2, 203, 186), 5px -5px 5px rgb(2, 203, 186), 5px 0px 5px rgb(2, 203, 186),  0px 5px 5px rgb(2, 203, 186), -5px 0px 5px rgb(2, 203, 186), 0px -5px 5px rgb(2, 203, 186);
+
+        /* clamp(min, preferred, max) */
+    }
+
+    .bgcontent2 {
+        z-index: 10000;
+        display: flex;
+        font-size: clamp(10px, 5vw, 50px);
+        margin: 0 ;
+        margin-top: clamp(150px, 28vw, 350px);
+        width: 60%;
+        min-width: 150px;
+        max-width: 280px;
+        height: 30%;
+        text-align: center;
+        align-items: center;
+        line-height: 1.1;
+        font-weight: 700;
+        font-family: Nunito, sans-serif;
+         transition: all 300ms ease-in-out 0s;
+    }
+
+    .bgcontent2 a {
+        text-decoration: 0;
+        width: 100%;
+
+        font-size: clamp(8px, 5vw, 50px);
+        border: 3px solid red;
+        text-align: center;
+
+    }
+
+    /* each slide takes exactly 25% of the .slides row (=> 100% of the .slideshow viewport) */
+    .slide2 {
+        flex: 0 0 25%;
+        height: 100%;
+        background-size: cover;
+        /* fill area (use contain if you prefer letterboxing) */
+        background-position: center;
+        background-repeat: no-repeat;
+        flex-direction: column;
+        flex-wrap: wrap;
+
+    }
+
+    /* Keyframes computed for: 10s hold + 1s slide (per image) over 33s total */
+    @keyframes slide2 {
+        0% {
+            transform: translateX(0%);
+        }
+
+        /* show slide 1 */
+        30.30303% {
+            transform: translateX(0%);
+        }
+
+        /* hold ~10s */
+        33.33333% {
+            transform: translateX(-25%);
+        }
+
+        /* quick slide -> slide 2 */
+        63.63636% {
+            transform: translateX(-25%);
+        }
+
+        /* hold slide 2 (~10s) */
+        66.66666% {
+            transform: translateX(-50%);
+        }
+
+        /* quick slide -> slide 3 */
+        96.96969% {
+            transform: translateX(-50%);
+        }
+
+        /* hold slide 3 (~10s) */
+        100% {
+            transform: translateX(-75%);
+        }
+
+        /* slide to duplicate (same as slide 1) */
+    }
+
+    /***********FONTS***********/
+
+    .plus-jakarta-sans-sann {
+        font-family: "Plus Jakarta Sans", sans-serif;
+        font-optical-sizing: auto;
+        font-weight: 500;
+        font-style: normal;
+    }
+
+    .encode-sans-ene {
+        font-family: "Encode Sans", sans-serif;
+        font-optical-sizing: auto;
+        font-weight: 500;
+        font-style: normal;
+        font-variation-settings:
+            "wdth" 100;
+    }
+
+    .geist-ges {
+        font-family: "Geist", sans-serif;
+        font-optical-sizing: auto;
+        font-weight: 500;
+        font-style: normal;
+    }
+
+    .lora-lorra {
+        font-family: "Lora", serif;
+        font-optical-sizing: auto;
+        font-weight: 600;
+        font-style: normal;
+    }
+
+
+    /**********ANIMATIONS*********/
+
+    .animated-gradient {
+        background: linear-gradient(270deg, #a960ee, #ff333d, #ffcb57, #a960ee);
+        background-size: 400% 400%;
+        animation: gradientFlow 6s ease infinite;
+        color: white;
+        /* text stays visible */
+    }
+
+    @keyframes gradientFlow {
+        0% {
+            background-position: 0% 50%;
+        }
+
+        50% {
+            background-position: 100% 50%;
+        }
+
+        100% {
+            background-position: 0% 50%;
+        }
+    }
+
+    .testbt {
+        width: 100px;
+        height: 60px;
+        transition: all 0.5s ease-in-out 0s;
+        /* property | duration | timing | delay */
+        margin: 50px auto;
+    }
+
+    .testbt:hover {
+        background-color: dodgerblue;
+        transform: scale(1.2);
+    }
+
+    .animate-on-scroll {
+        opacity: 0;
+        transition: opacity 300ms ease-in, transform 500ms ease-in;
+    }
+
+    .animate-on-scroll.is-visible {
+        opacity: 1;
+        transform: translateX(0) translateY(0);
+    }
+
+    /* Starting positions for different effects */
+    .from-left {
+        transform: translateX(-50px);
+    }
+
+    .from-right {
+        transform: translateX(50px);
+    }
+
+    .fade-in {
+        transform: translateY(60px);
+        transition-duration: 300ms;
+    }
+
+
+    /* New Animation Types */
+
+    /* Fade-in from Bottom */
+    .fade-in-bottom {
+        transform: translateY(20px);
+    }
+
+    /* Slide in from the Left */
+    .slide-in-left {
+        transform: translateX(-100px);
+    }
+
+    /* Slide in from the Right */
+    .slide-in-right {
+        transform: translateX(100px);
+    }
+
+    /* Zoom In (starts smaller) */
+    .zoom-in {
+        transform: scale(0.6);
+
+    }
+
+    /* Zoom Out (starts larger) */
+    .zoom-out {
+        transform: scale(1.2);
+    }
+
+    /* Rotate and Fade */
+    .rotate-fade {
+        transform: rotate(15deg);
+    }
+
+    /* Flip and Fade */
+    .flip-fade {
+        transform: rotateX(90deg);
+    }
+
+    .fade {
+        transform: scale(1);
+        transition-duration: 300ms;
+        transition-timing-function: ease-in !important;
+    }
+
+
+    .zoom-in2 {
+        transform: scale(0.6);
+        transition-timing-function: ease-in-out;
+        transition-duration: 300ms;
+
+    }
+
+    .zoom-in3 {
+        transform: scale(0.4);
+        transition-timing-function: ease-in;
+        transition-duration: 300ms;
+    }
+
+    .anidelay300 {
+        transition-delay: 300ms;
+    }
+
+    .anidelay400 {
+        transition-delay: 400ms;
+    }
+
+    .anidelay500 {
+        transition-delay: 500ms;
+    }
+
+    .anidelay600 {
+        transition-delay: 600ms;
+    }
+
+    .anidelay700 {
+        transition-delay: 700ms;
+    }
+
+    .anidelay800 {
+        transition-delay: 800ms;
+    }
+
+    .anidelay900 {
+        transition-delay: 900ms;
+    }
+
+    .anidelay1000 {
+        transition-delay: 1000ms;
+    }
+
+    .anidelay1100 {
+        transition-delay: 1100ms;
+    }
+
+    
+</style>
+
+<body>
+
+
+
+
+    
+    <nav class="navbar">
+        <a href="1.html">
+            <img src="/Project/images/LOGOOO.png" alt="" style="width: 150px;">
+        </a>
+
+        <ul class="nav-links">
+            <li class="home"><a class="flinks" href="home.html">Home</a></li>
+            <li class="has-dropdown products">
+                <a class="flinks" href="">Products <span class="arrow">▼</span></a>
+                <ul class="dropdown drop1">
+                    <li><a href="assistantrobots.html">Assistant Robots</a></li>
+                    <li><a href="companionrobots.html">Companion Robots</a></li>
+                    <li><a href="petrobots.html">Pet Robots</a></li>
+                </ul>
+            </li>
+
+            <li class="has-dropdown solutions">
+                <a href="#" class="flinks">Solutions <span class="arrow">▼</span></a>
+                <ul class="dropdown">
+                    <li class="has-submenu">
+                        <a href="#">Business Solutions <span class="arrow2">▶</span></a>
+                        <ul class="submenu">
+                            <li><a href="hotelrobots.html">
+                                    <pre>●  Hotel Robots</pre>
+                                </a></li>
+                            <li><a href="#">
+                                    <pre>●  Healthcare Robots</pre>
+                                </a></li>
+                            <li><a href="#">
+                                    <pre>●  Delivery Robots</pre>
+                                </a></li>
+                        </ul>
+                    </li>
+                    <li class="has-submenu">
+                        <a href="#">Industry Solutions <span class="arrow2">▶</span></a>
+                        <ul class="submenu">
+                            <li><a href="#">
+                                    <pre>●  Robotic Robots</pre>
+                                </a></li>
+                            <li><a href="#">
+                                    <pre>●  Warehouse Robots</pre>
+                                </a></li>
+                            <li><a href="#">
+                                    <pre>●  Agricultural Robots</pre>
+                                </a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </li>
+
+            <li class="about"><a class="flinks" href="about.html">About</a></li>
+            <li class="contact"><a class="flinks" href="contact.html">Contact</a></li>
+        </ul>
+        <div class="burger" style="display: flex; justify-content: space-between; align-items: center;">
+            <a href="#" class="navquote quote2" style="padding: 10px 20px; margin: 0;">
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                Quote
+            </a>
+            <div class="hamburger" style="margin-left: 20px;">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+
+    </nav>
+
+
+
+    
+
+
+    <!-- ********** SLIDES PHOTOS *********** -->
+    <div class="slideshow animate-on-scroll fade">
+        <div class="slides">
+            <div class="slide"
+                style="background-image: url('/Project/images/20998002-kebbi-robot-teaching-assistan-3840x2160.png');">
+            </div>
+            <div class="slide"
+                style="background-image: url('/Project/images/20998000-kebbi-robot-for-teaching-stem-3840x2160.png');">
+            </div>
+            <div class="slide" style="background-image: url('/Project/images/5289.webp');"></div>
+            <!-- Duplicate THE FIRST image exactly for a smooth loop -->
+            <div class="slide"
+                style="background-image: url('/Project/images/20998002-kebbi-robot-teaching-assistan-3840x2160.png');">
+            </div>
+        </div>
+    </div>
+
+
+    <!-- ********* SLIDES CONTENT ********* -->
+    <div class="slideshow2 animate-on-scroll fade">
+        <div class="slides2">
+            <div class="slide2">
+                <h1 class="animate-on-scroll zoom-in2">Joyful Future <br>Is Here</h1>
+            </div>
+
+            <div class="slide2">
+                <h1>With Robots <br>That Spark Joy</h1>
+            </div>
+
+            <div class="slide2">
+                <h1>Where Innovation<br>Meets Imagination</h1>
+            </div>
+
+            <!-- Duplicate THE FIRST image exactly for a smooth loop -->
+            <div class="slide2">
+                <h1>Joyful Future <br>Is Here</h1>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="mainbg animate-on-scroll fade ">
+        <div class="mainbgcontent">
+            <div class="bgcontent2 animate-on-scroll fade-in">
+                <a href="">Contact Us</a>
+            </div>
+
+
+        </div>
+    </div>
+
+
+    <div class="secpage robotkinds">
+      <div  class="firstkind animate-on-scroll zoom-in3 anidelay300">  <div>Personal <br> Robots </div> <img src="/Project/images/roboo.png" alt=""></div>
+      <div  class="seckind animate-on-scroll zoom-in3 anidelay700">  <div >Business <br>Robots </div> <img src="/Project/images/busissss.jpg" alt=""></div> 
+      <div class="thirdkind animate-on-scroll zoom-in3 anidelay1000">  <div>Industrial <br>Robots</div><img src="/Project/images/robotic-arm-working-stockcake.jpg" alt=""></div> 
+    </div>
+
+    <div class="">
+        <h1 class="welcome animate-on-scroll zoom-in3 anidelay300"> <br>From pet companions to industrial automation, <br>RoboJoy
+            delivers cutting-edge robotic solutions for every need.</h1>
+        <img src="/Project/images/roboo.png" alt="" style="height: 16vw; border-radius: 10px;">    
+    </div>
+
+
+
+    <section class="animate-on-scroll zoom-in3" style="margin: 30px auto;">
+
+        <div>
+            <button class="testbt ">Learn More</button>
+        </div>
+    </section>
+
+
+
+<script>/* Final consolidated script — drop this into your <script> (replace old script) */
+document.addEventListener('DOMContentLoaded', () => {
+
+    /*************** HAMBURGER *****************/
+    const hamburger = document.querySelector('.hamburger');
+    const navLinks = document.querySelector('.nav-links');
+
+    if (hamburger && navLinks) {
+        hamburger.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+
+            // When opening hamburger, clear any desktop-only opens so mobile doesn't show them
+            if (navLinks.classList.contains('active')) {
+                document.querySelectorAll('.has-dropdown, .has-submenu').forEach(el => {
+                    el.classList.remove('open', 'clicked');
+                });
+            } else {
+                // when closing hamburger, close mobile dropdowns & submenus
+                document.querySelectorAll('.has-dropdown, .has-submenu').forEach(el => {
+                    el.classList.remove('active');
+                });
+            }
+        });
+    }
+
+    /**************** SCROLLING (unchanged) ****************/
+    const elementsToAnimate = document.querySelectorAll('.animate-on-scroll');
+    const observerOptions = { root: null, rootMargin: '0px', threshold: 0.2 };
+    const observer = new IntersectionObserver((entries, observerInstance) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('is-visible');
+                observerInstance.unobserve(entry.target);
+            }
+        });
+    }, observerOptions);
+    elementsToAnimate.forEach(el => observer.observe(el));
+
+    /**************** DROPDOWNS + SUBMENUS ****************/
+    const dropdownItems = Array.from(document.querySelectorAll('.has-dropdown'));
+    const submenuItems = Array.from(document.querySelectorAll('.has-submenu'));
+    const CLOSE_DELAY = 220; // ms
+
+    function closeAllDropdowns() {
+        dropdownItems.forEach(i => i.classList.remove('clicked', 'open', 'active'));
+        submenuItems.forEach(s => s.classList.remove('clicked', 'open', 'active'));
+    }
+
+    // Helper to detect "mobile mode" (hamburger open OR narrow viewport)
+    function isMobileMode() {
+        return (navLinks && navLinks.classList.contains('active')) || window.innerWidth <= 784;
+    }
+
+    /* ---------- Top-level dropdowns ---------- */
+    dropdownItems.forEach(item => {
+        const trigger = item.querySelector(':scope > a'); // top-level anchor
+        const menu = item.querySelector('.dropdown');
+        let closeTimer = null;
+
+        function openNow() {
+            if (closeTimer) { clearTimeout(closeTimer); closeTimer = null; }
+            item.classList.add('open');
+        }
+        function scheduleClose() {
+            if (closeTimer) clearTimeout(closeTimer);
+            closeTimer = setTimeout(() => {
+                if (!item.classList.contains('clicked')) item.classList.remove('open');
+            }, CLOSE_DELAY);
+        }
+
+        // Desktop hover (but only if not in mobile mode)
+        item.addEventListener('mouseenter', () => {
+            if (!isMobileMode() && !item.classList.contains('clicked')) openNow();
+        });
+        item.addEventListener('mouseleave', () => {
+            if (!isMobileMode() && !item.classList.contains('clicked')) scheduleClose();
+        });
+
+        if (menu) {
+            menu.addEventListener('mouseenter', () => {
+                if (!isMobileMode()) { if (closeTimer) { clearTimeout(closeTimer); closeTimer = null; } }
+            });
+            menu.addEventListener('mouseleave', () => {
+                if (!isMobileMode() && !item.classList.contains('clicked')) scheduleClose();
+            });
+        }
+
+        // Click behaviour: desktop click opens persistently; mobile mode toggles mobile state
+        if (trigger) {
+            trigger.addEventListener('click', (e) => {
+                e.preventDefault();
+                e.stopPropagation();
+
+                // Desktop click (persistent)
+                if (!isMobileMode()) {
+                    const wasClicked = item.classList.contains('clicked');
+                    closeAllDropdowns(); // close everything first
+                    if (!wasClicked) item.classList.add('clicked', 'open');
+                    return;
+                }
+
+                // Mobile click (inside hamburger) -> toggle this dropdown's mobile state
+                if (isMobileMode()) {
+                    // close other mobile dropdowns
+                    dropdownItems.forEach(i => { if (i !== item) i.classList.remove('active'); });
+                    item.classList.toggle('active');
+                    // when toggling mobile dropdown, also clear desktop-only open
+                    item.classList.remove('open', 'clicked');
+                }
+            });
+        }
+
+        // Ensure desktop-only states cleared on resize into mobile and vice versa
+        window.addEventListener('resize', () => {
+            if (window.innerWidth <= 784) {
+                item.classList.remove('open', 'clicked');
+            } else {
+                item.classList.remove('active');
+            }
+        });
+    });
+
+    /* ---------- Submenus (has-submenu) ---------- */
+    submenuItems.forEach(sub => {
+        const trigger = sub.querySelector(':scope > a');
+        const submenu = sub.querySelector('.submenu');
+
+        let closeTimer = null;
+        function scheduleSubClose() {
+            if (closeTimer) clearTimeout(closeTimer);
+            closeTimer = setTimeout(() => {
+                if (!sub.classList.contains('clicked')) sub.classList.remove('open');
+            }, CLOSE_DELAY);
+        }
+        function cancelSubClose() { if (closeTimer) { clearTimeout(closeTimer); closeTimer = null; } }
+
+        // Hover (desktop only and only when top-level isn't in mobile mode)
+        sub.addEventListener('mouseenter', () => {
+            if (!isMobileMode() && !sub.classList.contains('clicked')) sub.classList.add('open');
+        });
+        sub.addEventListener('mouseleave', () => {
+            if (!isMobileMode() && !sub.classList.contains('clicked')) scheduleSubClose();
+        });
+
+        if (submenu) {
+            submenu.addEventListener('mouseenter', cancelSubClose);
+            submenu.addEventListener('mouseleave', () => {
+                if (!isMobileMode() && !sub.classList.contains('clicked')) scheduleSubClose();
+            });
+        }
+
+        // Click toggles persistent open/close (desktop & mobile)
+        if (trigger) {
+            trigger.addEventListener('click', (e) => {
+                e.preventDefault();
+                e.stopPropagation();
+
+                const wasActive = sub.classList.contains('active');
+
+                // Close sibling submenus (within same dropdown) first
+                const parentDropdown = sub.closest('.dropdown') || sub.closest('.has-dropdown') || document;
+                const siblingSubmenus = Array.from(parentDropdown.querySelectorAll('.has-submenu'));
+                siblingSubmenus.forEach(s => { if (s !== sub) s.classList.remove('active', 'open', 'clicked'); });
+
+                if (!wasActive) {
+                    sub.classList.add('active', 'clicked', 'open');
+                } else {
+                    sub.classList.remove('active', 'clicked', 'open');
+                }
+            });
+        }
+
+        // Clear states on resize
+        window.addEventListener('resize', () => {
+            if (window.innerWidth <= 784) {
+                sub.classList.remove('open', 'clicked');
+            } else {
+                sub.classList.remove('active');
+            }
+        });
+    });
+
+    /******** GLOBAL CLOSE ********/
+    // Click outside the navbar closes everything
+    document.addEventListener('click', (e) => {
+        const insideNav = e.target.closest('.navbar') || e.target.closest('.nav-links');
+        if (!insideNav) closeAllDropdowns();
+    });
+
+    // Escape key closes everything
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') closeAllDropdowns();
+    });
+
+
+    const source = document.querySelector(".sildeshow");
+    const roott = document.documentElement
+
+    function updateHeight() {
+        let sourceHeight = source.offsetHeight = "px";
+        root.style.setProperty("--source-height", sourceHeight)
+    }
+
+    updateHeight()
+
+window.addEventListener("resize", updateHeight);
+
+});
+
+</script>
+</body>
+
+</html>

@@ -6,16 +6,28 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Robojoy - Futuristic Navigation</title>
-    <link rel="stylesheet" href="PROJECT.css">
+    <link rel="stylesheet" href="/Project/CSS/PROJECT.css">
+    <link rel="stylesheet" href="/Project/CSS/nav-dropdown.css">
+    <link rel="stylesheet" href="/Project/CSS/animations.css">
+    <link rel="stylesheet" href="/Project/CSS/slides.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
         href="https://fonts.googleapis.com/css2?family=Encode+Sans:wght@100..900&family=Geist:wght@100..900&family=Lora:ital,wght@0,400..700;1,400..700&family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap"
         rel="stylesheet">
+       <!-- Google Web Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&family=Rubik:wght@400;500;600;700&display=swap" rel="stylesheet">            
 </head>
 
 
 <body>
+
+
+
+
+    
     <nav class="navbar">
         <a href="1.html">
             <img src="/Project/images/LOGOOO.png" alt="" style="width: 150px;">
@@ -26,10 +38,9 @@
             <li class="has-dropdown products">
                 <a class="flinks" href="">Products <span class="arrow">▼</span></a>
                 <ul class="dropdown drop1">
-                    <li><a href="#">Assistant Robots</a></li>
-                    <li><a href="#">Companion Robots</a></li>
-                    <li><a href="#">Pet Robots</a></li>
-                    <li><a href="#">s</a></li>
+                    <li><a href="assistantrobots.html">Assistant Robots</a></li>
+                    <li><a href="companionrobots.html">Companion Robots</a></li>
+                    <li><a href="petrobots.html">Pet Robots</a></li>
                 </ul>
             </li>
 
@@ -39,17 +50,29 @@
                     <li class="has-submenu">
                         <a href="#">Business Solutions <span class="arrow2">▶</span></a>
                         <ul class="submenu">
-                            <li><a href="#"><pre>●  Hotel Robots</pre></a></li>
-                            <li><a href="#"><pre>●  Healthcare Robots</pre></a></li>
-                            <li><a href="#"><pre>●  Retail Robots</pre></a></li>
+                            <li><a href="hotelrobots.html">
+                                    <pre>●  Hotel Robots</pre>
+                                </a></li>
+                            <li><a href="#">
+                                    <pre>●  Healthcare Robots</pre>
+                                </a></li>
+                            <li><a href="#">
+                                    <pre>●  Delivery Robots</pre>
+                                </a></li>
                         </ul>
                     </li>
                     <li class="has-submenu">
                         <a href="#">Industry Solutions <span class="arrow2">▶</span></a>
                         <ul class="submenu">
-                            <li><a href="#"><pre>●  Manufacturing Robots</pre></a></li>
-                            <li><a href="#"><pre>●  Warehouse Robots</pre></a></li>
-                            <li><a href="#"><pre>●  Agricultural Robots</pre></a></li>
+                            <li><a href="#">
+                                    <pre>●  Robotic Robots</pre>
+                                </a></li>
+                            <li><a href="#">
+                                    <pre>●  Warehouse Robots</pre>
+                                </a></li>
+                            <li><a href="#">
+                                    <pre>●  Agricultural Robots</pre>
+                                </a></li>
                         </ul>
                     </li>
                 </ul>
@@ -75,23 +98,86 @@
 
     </nav>
 
-    <h1 class="welcome">Welcome to the Future</h1>
-    <p>This is a demonstration of a sleek, futuristic navigation bar with a glowing "Robojoy" logo. The navbar
-        features smooth hover animations, gradient effects, and a responsive design that works on all devices.</p>
+
+
+    
+
+
+    <!-- ********** SLIDES PHOTOS *********** -->
+    <div class="slideshow animate-on-scroll fade">
+        <div class="slides">
+            <div class="slide"
+                style="background-image: url('/Project/images/20998002-kebbi-robot-teaching-assistan-3840x2160.png');">
+            </div>
+            <div class="slide"
+                style="background-image: url('/Project/images/20998000-kebbi-robot-for-teaching-stem-3840x2160.png');">
+            </div>
+            <div class="slide" style="background-image: url('/Project/images/5289.webp');"></div>
+            <!-- Duplicate THE FIRST image exactly for a smooth loop -->
+            <div class="slide"
+                style="background-image: url('/Project/images/20998002-kebbi-robot-teaching-assistan-3840x2160.png');">
+            </div>
+        </div>
+    </div>
+
+
+    <!-- ********* SLIDES CONTENT ********* -->
+    <div class="slideshow2 animate-on-scroll fade">
+        <div class="slides2">
+            <div class="slide2">
+                <h1 class="animate-on-scroll zoom-in2">Joyful Future <br>Is Here</h1>
+            </div>
+
+            <div class="slide2">
+                <h1>With Robots <br>That Spark Joy</h1>
+            </div>
+
+            <div class="slide2">
+                <h1>Where Innovation<br>Meets Imagination</h1>
+            </div>
+
+            <!-- Duplicate THE FIRST image exactly for a smooth loop -->
+            <div class="slide2">
+                <h1>Joyful Future <br>Is Here</h1>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="mainbg animate-on-scroll fade ">
+        <div class="mainbgcontent">
+            <div class="bgcontent2 animate-on-scroll fade-in">
+                <a href="">Contact Us</a>
+            </div>
+
+
+        </div>
+    </div>
+
+
+    <div class="secpage robotkinds">
+      <div  class="firstkind animate-on-scroll zoom-in3 anidelay300">  <div>Personal <br> Robots </div> <img src="/Project/images/roboo.png" alt=""></div>
+      <div  class="seckind animate-on-scroll zoom-in3 anidelay700">  <div >Business <br>Robots </div> <img src="/Project/images/busissss.jpg" alt=""></div> 
+      <div class="thirdkind animate-on-scroll zoom-in3 anidelay1000">  <div>Industrial <br>Robots</div><img src="/Project/images/robotic-arm-working-stockcake.jpg" alt=""></div> 
+    </div>
+
+    <div class="">
+        <h1 class="welcome animate-on-scroll zoom-in3 anidelay300"> <br>From pet companions to industrial automation, <br>RoboJoy
+            delivers cutting-edge robotic solutions for every need.</h1>
+        <img src="/Project/images/roboo.png" alt="" style="height: 16vw; border-radius: 10px;">    
     </div>
 
 
 
-    <section class="animate-on-scroll slide-in-left" style="margin: 30px auto;">
+    <section class="animate-on-scroll zoom-in3" style="margin: 30px auto;">
 
         <div>
             <button class="testbt ">Learn More</button>
         </div>
     </section>
 
-    <script src="/Project/JavaScript/main.js">
 
-    </script>
+<script src="/Project/JavaScript/main2.js"></script>
 
 </body>
 

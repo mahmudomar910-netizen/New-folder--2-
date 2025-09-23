@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    /* ---------- GENERAL ---------- */
+body {
+  margin: 0;
+  font-family: 'Roboto', sans-serif;
+  background-color: #0f111a;
+  color: #f5f5f5;
+  scroll-behavior: smooth;
+}
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+/* ---------- HERO ---------- */
+.hero {
+  min-height: 90vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(135deg, #0f111a 0%, #1a1f36 100%);
+  text-align: center;
+  overflow: hidden;
+}
+.hero-title {
+  font-size: 3rem;
+  color: #00d1ff;
+  margin-bottom: 1rem;
+  animation: fadeSlideDown 1.2s ease forwards;
+}
+.hero-subtitle {
+  font-size: 1.4rem;
+  color: #a0a0a0;
+  margin-bottom: 2rem;
+  animation: fadeSlideUp 1.2s ease forwards;
+}
+.cta-button {
+  display: inline-block;
+  padding: 0.8rem 2rem;
+  background-color: #00d1ff;
+  color: #0f111a;
+  font-weight: bold;
+  border-radius: 6px;
+  text-decoration: none;
+  transition: transform 0.3s, background 0.3s;
+}
+.cta-button:hover {
+  transform: translateY(-4px);
+  background-color: #00b8e6;
+}
+
+/* ---------- ABOUT ---------- */
+.about-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  align-items: center;
+}
+.about-text h2 {
+  color: #00d1ff;
+  margin-bottom: 1rem;
+}
+.about-image img {
+  width: 100%;
+  border-radius: 10px;
+  object-fit: cover;
+}
+
+/* ---------- SOLUTIONS ---------- */
+.cards-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+  margin-top: 2rem;
+}
+.card {
+  background: #1a1f36;
+  padding: 1.5rem;
+  border-radius: 10px;
+  text-align: center;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(0, 209, 255, 0.3);
+}
+.card h3 {
+  color: #00d1ff;
+  margin-bottom: 0.5rem;
+}
+
+/* ---------- FEATURES ---------- */
+.features-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 2rem;
+  margin-top: 2rem;
+}
+.feature-card {
+  background: #1a1f36;
+  padding: 1.2rem;
+  border-radius: 10px;
+  text-align: center;
+  transition: transform 0.3s, background 0.3s;
+}
+.feature-card:hover {
+  transform: translateY(-5px);
+  background: #0f111a;
+}
+.feature-icon {
+  font-size: 2.5rem;
+  margin-bottom: 0.8rem;
+  color: #00d1ff;
+}
+
+/* ---------- TESTIMONIALS ---------- */
+.testimonials {
+  background: #111429;
+  padding: 4rem 2rem;
+  text-align: center;
+}
+.testimonial-slider {
+  display: flex;
+  overflow-x: auto;
+  gap: 1rem;
+  scroll-behavior: smooth;
+}
+.testimonial {
+  flex: 0 0 300px;
+  background: #1a1f36;
+  padding: 1.5rem;
+  border-radius: 10px;
+}
+.testimonial span {
+  display: block;
+  margin-top: 1rem;
+  color: #00d1ff;
+}
+
+/* ---------- CTA ---------- */
+.cta {
+  background: linear-gradient(135deg, #0f111a, #1a1f36);
+  padding: 4rem 2rem;
+  text-align: center;
+}
+
+/* ---------- ANIMATIONS ---------- */
+.animate-on-scroll {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: all 0.8s ease-out;
+}
+.animate-on-scroll.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@keyframes fadeSlideDown {
+  from { opacity: 0; transform: translateY(-40px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@keyframes fadeSlideUp {
+  from { opacity: 0; transform: translateY(40px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* ---------- RESPONSIVE ---------- */
+@media(max-width: 900px) {
+  .about-grid { grid-template-columns: 1fr; text-align: center; }
+  .about-text { order: 2; }
+  .about-image { order: 1; }
+}
+
+</style>
+<body>
+    <!-- ====== HOMEPAGE LAYOUT ====== -->
+<div class="homepage">
+
+  <!-- ===== HERO / HOME SECTION ===== -->
+  <section class="hero animate-on-scroll">
+    <div class="container">
+      <h1 class="hero-title">Empowering the Future with Robotics</h1>
+      <p class="hero-subtitle">Innovative solutions for business, healthcare, and industry.</p>
+      <a href="#solutions" class="cta-button">Explore Our Robots</a>
+    </div>
+  </section>
+
+  <!-- ===== ABOUT / COMPANY INFO ===== -->
+  <section class="about animate-on-scroll">
+    <div class="container about-grid">
+      <div class="about-text">
+        <h2>About RoboJoy</h2>
+        <p>RoboJoy is at the forefront of robotic innovation, delivering smart, adaptable, and reliable robots to businesses, healthcare facilities, and industrial environments. We design technology that improves efficiency, safety, and customer experience.</p>
+      </div>
+      <div class="about-image">
+        <img src="images/robot-lab.jpg" alt="RoboJoy Lab">
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== SOLUTIONS / PRODUCTS ===== -->
+  <section class="solutions animate-on-scroll" id="solutions">
+    <h2>Our Solutions</h2>
+    <div class="cards-grid">
+      <div class="card">
+        <h3>Business Robots</h3>
+        <p>Hotel, healthcare, and retail robots that streamline operations and enhance customer experience.</p>
+      </div>
+      <div class="card">
+        <h3>Industrial Robots</h3>
+        <p>Advanced manufacturing, warehouse, and agricultural robots for precision and efficiency.</p>
+      </div>
+      <div class="card">
+        <h3>Custom Solutions</h3>
+        <p>Tailored robots designed to meet your unique business or industrial needs.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== FEATURES / BENEFITS ===== -->
+  <section class="features animate-on-scroll">
+    <h2>Why Choose RoboJoy?</h2>
+    <div class="features-grid">
+      <div class="feature-card">
+        <i class="feature-icon">🤖</i>
+        <h3>Innovation</h3>
+        <p>Cutting-edge robotics designed for modern challenges.</p>
+      </div>
+      <div class="feature-card">
+        <i class="feature-icon">⚡</i>
+        <h3>Efficiency</h3>
+        <p>Boost productivity and reduce operational costs.</p>
+      </div>
+      <div class="feature-card">
+        <i class="feature-icon">🔒</i>
+        <h3>Safety</h3>
+        <p>Safe and reliable robots built for human collaboration.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== TESTIMONIALS ===== -->
+  <section class="testimonials animate-on-scroll">
+    <h2>What Our Clients Say</h2>
+    <div class="testimonial-slider">
+      <div class="testimonial">
+        <p>"RoboJoy’s hotel robot transformed our guest experience!"</p>
+        <span>- Jane Doe, Hotel Manager</span>
+      </div>
+      <div class="testimonial">
+        <p>"Our warehouse efficiency increased by 40% thanks to RoboJoy."</p>
+        <span>- John Smith, Operations Head</span>
+      </div>
+      <div class="testimonial">
+        <p>"Reliable healthcare robots that truly help our staff."</p>
+        <span>- Dr. Emily Clark</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== CALL TO ACTION ===== -->
+  <section class="cta animate-on-scroll">
+    <h2>Ready to revolutionize your business?</h2>
+    <a href="#contact" class="cta-button">Get Started Today</a>
+  </section>
+
+</div>
+<script>document.addEventListener('DOMContentLoaded', () => {
+  const elements = document.querySelectorAll('.animate-on-scroll');
+  const observer = new IntersectionObserver((entries, obs) => {
+    entries.forEach(entry => {
+      if(entry.isIntersecting){
+        entry.target.classList.add('is-visible');
+        obs.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.2 });
+
+  elements.forEach(el => observer.observe(el));
+});
+</script>
+</body>
+</html>

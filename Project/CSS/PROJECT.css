@@ -1,0 +1,114 @@
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+
+    }
+
+    body {
+        background: #0a0e17;
+        color: #fff;
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+
+    }
+
+    h1 {
+        font-size: 48px;
+        margin-bottom: 20px;
+        background: linear-gradient(45deg, #00f7ff, #00ff95);
+        -webkit-background-clip: text;
+        background-clip: text;
+        color: transparent;
+        font-family: Geist;
+        font-weight: 400;
+
+    }
+
+    p {
+        font-size: 18px;
+        line-height: 1.6;
+        max-width: 800px;
+        margin: 0 auto;
+        color: #ccd6f6;
+        font-family: Geist;
+    }
+
+
+    .material-symbols-outlined {
+        font-variation-settings:
+            'FILL' 1,
+            'wght' 300,
+            'GRAD' 0,
+            'opsz' 24
+    }
+
+    .secpage {
+        display: flex;
+        width: 100%;
+        z-index: 10000;
+        margin-top: 45vw;
+        padding-left: 5vw;
+        padding-right: 5vw;
+        justify-content: center;
+    }
+
+    .secpage div {
+        display: flex;
+        width: fit-content;
+ 
+    }
+
+    .secpage div div {
+        display: flex;
+        padding: 2vw;
+        font-size: clamp(6px, 4vw, 40px);
+        font-family: Nunito, sans-serif;
+        line-height: 1;
+        width: fit-content;
+    }
+
+    .secpage img {
+        width: 10vw;
+        height: 10vw;
+        padding: 0.5vw;
+    }
+
+
+    .firstkind {
+        background-color: lightseagreen;
+        line-height: 1;
+        border: 3px solid rgba(255, 255, 255, 0);
+    }
+
+    .seckind {
+        background-color: #00ff3c;
+
+    }
+
+    .thirdkind {
+        background-color: #f2c200;
+
+    }
+
+
+    .thirdpage {
+        display: flex;
+        width: 100%;
+        z-index: 10000;
+        margin-top: 52vw;
+        padding: 0 32px;
+        padding-right: 5vw;
+        justify-content: space-around;
+
+    }
+
+
+    .welcome {
+        font-size: clamp(10px, 6vw, 40px);
+
+        color: white;
+        z-index: 3000;
+    }
